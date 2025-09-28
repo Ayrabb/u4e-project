@@ -12,7 +12,7 @@ export default function Home() {
       <header className="bg-[#1b1b7a] text-white py-4 px-8 flex justify-between items-center">
         <div className="font-bold text-xl">
            <Image
-              src="/u4e_transparent.png" 
+              src="/u4e_logo.png" 
               alt="U4E Logo"
               width={65.0}       
               height={65.0}
