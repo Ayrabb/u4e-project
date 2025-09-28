@@ -1,23 +1,30 @@
-// app/page.tsx
+"use client";
 import Image from "next/image";
 import GlanceSection from "./components/GlanceSection";
 import Footer from "./components/footer";
+import { FiMenu, FiX } from "react-icons/fi";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <main className="relative min-h-screen font-montserrat">
-     
-
       {/* Navbar */}
       <header className="bg-[#1b1b7a] text-white py-4 px-8 flex justify-between items-center">
-        <div className="font-bold text-xl">
-           <Image
-              src="/u4e_logo.png" 
-              alt="U4E Logo"
-              width={65.0}       
-              height={65.0}
-              priority
-            /></div>
+        {/* Logo (hidden on mobile) */}
+        <div className="font-bold text-xl hidden md:block">
+          <Image
+            src="/u4e_logo.png"
+            alt="U4E Logo"
+            width={65}
+            height={65}
+            priority
+          />
+        </div>
+
+        {/* Desktop nav */}
         <nav className="space-x-8 hidden md:flex">
           <a href="#" className="hover:text-gray-300">About</a>
           <a href="#" className="hover:text-gray-300">News</a>
@@ -25,39 +32,71 @@ export default function Home() {
           <a href="#" className="hover:text-gray-300">Resources</a>
           <a href="#" className="hover:text-gray-300">Contact us</a>
         </nav>
+
+        {/* Mobile hamburger */}
+        <div className="md:hidden">
+          <button onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+        </div>
       </header>
+
+            {/* Mobile slide-in menu */}
+          <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ x: "-100%" }}   
+            animate={{ x: 0 }}         
+            exit={{ x: "-100%" }}      
+            transition={{ type: "tween", duration: 0.3 }}
+            className="fixed top-0 left-0 h-full w-3/4 bg-[#1b1b7a]/90 text-white shadow-lg z-50 p-8 flex flex-col space-y-6"
+          >
+            <button
+              className="self-end mb-6"
+              onClick={() => setMenuOpen(false)}
+            >
+              <FiX size={28} />
+            </button>
+            <a href="#" className="hover:text-gray-300">About</a>
+            <a href="#" className="hover:text-gray-300">News</a>
+            <a href="#" className="hover:text-gray-300">Stories</a>
+            <a href="#" className="hover:text-gray-300">Resources</a>
+            <a href="#" className="hover:text-gray-300">Contact us</a>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-start px-12 text-white">
-    {/* Background image */}
-    <div className="absolute inset-0 -z-10">
-      <Image
-        src="/panelsongrass.jpg"
-        alt="Cityscape"
-        fill
-        priority
-        className="object-cover object-center"
-      />
-    </div>
+        {/* Background image */}
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="/panelsongrass.jpg"
+            alt="Cityscape"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+        </div>
 
-    {/* Overlay */}
-    <div className="absolute inset-0 bg-[#1b1b7a]/30 -z-10" />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-[#1b1b7a]/30 -z-10" />
 
-  
-      <div>
-        <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-          United for Efficiency Initiative <br /> in
-          <span className="text-green-800"> Nigeria</span>
-        </h1>
+        <div>
+          <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
+            United for Efficiency Initiative <br /> in
+            <span className="text-green-800"> Nigeria</span>
+          </h1>
 
-        <p className="mt-4 text-gray-200 leading-relaxed text-left">
-          The Africa Minigrids Program is supporting access to clean energy by increasing 
-          the financial viability, and promoting scaled-up commercial investment, in 
-          renewable energy minigrids in Africa
-        </p>
-      </div>
-    </section>
-       {/* News section */}
+          <p className="mt-4 text-gray-200 leading-relaxed text-left">
+            The Africa Minigrids Program is supporting access to clean energy by increasing 
+            the financial viability, and promoting scaled-up commercial investment, in 
+            renewable energy minigrids in Africa
+          </p>
+        </div>
+      </section>
+
+      {/* News section */}
       <section className="bg-white py-12 px-4 md:px-12">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold text-[#b59d2a]">Latest updates</h2>
@@ -117,37 +156,35 @@ export default function Home() {
         </div>
       </section>
 
-    
       {/* Supporting Local Energy Grids Section */}
-      
       <section className="bg-[#133d2f] py-16 px-8 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
-  
-  <div className="flex-1 text-left">
-    <h2 className="text-3xl lg:text-4xl font-medium mb-6 text-[#FFD700]">
-      Supporting Local <br /> Energy Grids
-    </h2>
-    <p className="text-base lg:text-lg leading-relaxed text-white">
-      The Africa Minigrids Program is supporting access to clean energy by
-      increasing the financial viability, and promoting scaled-up
-      commercial investment in renewable energy minigrids in Africa, with
-      a focus on cost-reduction levers and innovative business models.
-    </p>
-  </div>
+        <div className="flex-1 text-left">
+          <h2 className="text-3xl lg:text-4xl font-medium mb-6 text-[#FFD700]">
+            Supporting Local <br /> Energy Grids
+          </h2>
+          <p className="text-base lg:text-lg leading-relaxed text-white">
+            The Africa Minigrids Program is supporting access to clean energy by
+            increasing the financial viability, and promoting scaled-up
+            commercial investment in renewable energy minigrids in Africa, with
+            a focus on cost-reduction levers and innovative business models.
+          </p>
+        </div>
 
-  <div className="flex-1 w-full aspect-video">
-    <iframe
-      className="w-full h-full rounded-lg shadow-lg"
-      src="https://www.youtube.com/embed/5AvrfIN1HwE"
-      title="Africa Minigrids Program - Clean Energy Access"
-      allowFullScreen
-    />
-  </div>
+        <div className="flex-1 w-full aspect-video">
+          <iframe
+            className="w-full h-full rounded-lg shadow-lg"
+            src="https://www.youtube.com/embed/5AvrfIN1HwE"
+            title="Africa Minigrids Program - Clean Energy Access"
+            allowFullScreen
+          />
+        </div>
       </section>
+
       <section>
         <GlanceSection />
       </section>
 
-        {/* Section 2: Partners */}
+      {/* Section 2: Partners */}
       <section className="bg-white py-16 px-8 lg:px-20 text-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Implementing partner */}
@@ -193,10 +230,10 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section>
-        <Footer/> 
-      </section>
 
+      <section>
+        <Footer />
+      </section>
     </main>
   );
 }
