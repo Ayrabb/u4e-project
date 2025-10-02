@@ -2,8 +2,7 @@
 import Footer from "@/app/components/footer";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
+import NavBar from "../components/NavBar";
 
 type NewsItem = {
   title: string;               
@@ -56,54 +55,6 @@ const newsList: NewsItem[] = [
     image: "/event.jpg",
   }
 ];
-
-const NavBar = () => {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
-
-    // Add scroll event listener
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
-        
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-            isScrolled ? 'bg-[#044D28] py-4' : 'bg-transparent py-8'
-        } px-8 flex justify-between items-center`}>
-        {/* Logo (hidden on mobile) */}
-        <div className="font-bold text-xl hidden md:block">
-            <Image
-                src="/u4e_logo.png"
-                alt="U4E Logo"
-                className={`${isScrolled ? "w-30 h-auto" : "w-35 h-auto"}`}
-                width={65}
-                height={65}
-                priority
-            />
-        </div>
-
-        <nav className="space-x-8 hidden md:flex text-white">
-            <a href="#" className="hover:text-gray-300">About</a>
-            <a href="#" className="hover:text-gray-300">News</a>
-            <a href="#" className="hover:text-gray-300">Stories</a>
-            <a href="#" className="hover:text-gray-300">Resources</a>
-            <a href="#" className="hover:text-gray-300">Contact us</a>
-        </nav>
-
-        {/* Mobile hamburger */}
-        <div className="md:hidden">
-            <button onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-            </button>
-        </div>
-    </header>
-    )
-};
 
 const AllStories = ({ stories }: { stories: NewsItem[] }) => {
     const router = useRouter();
