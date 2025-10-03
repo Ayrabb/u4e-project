@@ -3,6 +3,7 @@ import Footer from "@/app/components/footer";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import NavBar from "../components/NavBar";
+import { useState } from "react";
 
 type NewsItem = {
   title: string;               
@@ -110,9 +111,11 @@ const AllStories = ({ stories }: { stories: NewsItem[] }) => {
 }
 
 export default function Stories () {
+	const [menuOpen, setMenuOpen] = useState(false);
+	
     return (
     <main className="relative min-h-screen font-montserrat bg-white">
-        <NavBar />
+        <NavBar menu={menuOpen} changeMenu={setMenuOpen}/>
         
         {/* Hero section */}
         <section className="flex items-center min-h-[95vh] bg-black">
