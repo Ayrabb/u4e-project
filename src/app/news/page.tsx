@@ -4,19 +4,15 @@ import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import NewsSection from "./tabs/News";
 import GallerySection from "./tabs/Gallery";
+import VideoSection from "./tabs/Videos";
 import { NewsItem } from "../components/utilities";
 
-const HeroSection = ({ active, changeTab } : { active: string, changeTab: (tab: string) => void }) => {
-	const sections = [
-		{
-			label: "News",
-			tab: '/news'
-		},
-		{
-			label: "Gallery",
-			tab: '/gallery'
-		}
-	]
+type Section = {
+  label: string;
+  tab: string;
+};
+
+const HeroSection = ({ active, changeTab, sections } : { active: string, changeTab: (tab: string) => void, sections: Section[] }) => {
 
 	return (
 		<section 
@@ -60,9 +56,13 @@ export default function NewsPage() {
 		{
 			label: "Gallery",
 			tab: '/gallery'
+		},
+		{
+			label: "Videos",
+			tab: '/videos'
 		}
 	];
-	const [activeTab, setActiveTab] = useState(sections[1].tab);
+	const [activeTab, setActiveTab] = useState(sections[0].tab);
 
 	useEffect(() => {
 		async function fetchNews() {
@@ -83,11 +83,15 @@ export default function NewsPage() {
 			<Navbar />
 
 			{/* Hero Section */}
-			<HeroSection active={activeTab} changeTab={setActiveTab} />
+			<HeroSection active={activeTab} changeTab={setActiveTab} sections={sections}/>
 
-			{activeTab === "/news" && (<NewsSection />)}
+			<main className="pb-6">
+				{activeTab === "/news" && (<NewsSection />)}
 
-			{activeTab === "/gallery" && (<GallerySection />)}
+				{activeTab === "/gallery" && (<GallerySection />)}
+
+				{activeTab === "/videos" && (<VideoSection />)}
+			</main>
 
 			<Footer />
 		</main>
