@@ -164,7 +164,7 @@ const AllNews = ({ newsList }: AllNewsProps) => {
 
                         {/* Badge and Source */}
                         <div className="flex items-center gap-3">
-                            <Badge type={news.category as any} size="sm" />
+                            <Badge type={news.category} size="sm" />
                             {news.source && (
                                 <>
                                 <span className="text-gray-300">•</span>
