@@ -62,7 +62,7 @@ export default function NewsPage() {
 			tab: '/gallery'
 		}
 	];
-	const [activeTab, setActiveTab] = useState(sections[0].tab);
+	const [activeTab, setActiveTab] = useState(sections[1].tab);
 
 	useEffect(() => {
 		async function fetchNews() {
@@ -87,7 +87,7 @@ export default function NewsPage() {
 
 			{activeTab === "/news" && (<NewsSection />)}
 
-			{activeTab === "/gallery" && (<GallerySection videoNews={videoNews}/>)}
+			{activeTab === "/gallery" && (<GallerySection />)}
 
 			<Footer />
 		</main>
