@@ -25,12 +25,15 @@ export default function ContactPage() {
     <main className="min-h-screen font-montserrat flex flex-col">
       <Navbar />
 
-      {/* Hero section */}
-      <section className="bg-gradient-to-b from-[#004225] to-[#0c6a34] py-12 px-4 md:px-12">
-        <h1 className="text-3xl font-semibold text-white mb-2">Contact Us</h1>
-        <p className="text-gray-300 text-base leading-relaxed max-w-3xl">
-          Get in touch with us by completing the form below or calling us directly.
-        </p>
+      <section 
+            className="min-h-42 mt-[var(--navbar-height)] bg-gradient-to-b from-[#044D28] from-28% via-[#078042] via-86% to-[#099A4F] to-100% flex items-center"
+        >
+          <div className="flex flex-col text-white mx-20">
+            <h1 className="text-5xl font-medium">Contact us</h1>
+            <p className="text-gray-300 text-lg text-base leading-relaxed max-w-3xl">
+              Get in touch with us by completing the form below or calling us directly.
+            </p>
+          </div>
       </section>
 
       {/* Contact Content */}
