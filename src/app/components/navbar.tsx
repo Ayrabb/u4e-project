@@ -3,9 +3,14 @@ import Image from "next/image";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useRouter, usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 
 const links = [
     {
+        label: "Home",
+        link: "/",
+    },
+	{
         label: "About",
         link: "/about",
     },
@@ -64,17 +69,18 @@ export default function Navbar () {
                     <Image
                         src="/u4e_logo.png"
                         alt="U4E Logo"
-                        className={`${(isScrolled || alwaysBgNav) ? "w-30 h-auto" : "w-40 h-auto"}`}
-                        width={200}
-                        height={200}
+                        className={`${(isScrolled || alwaysBgNav) ? "w-24 h-auto" : "w-30 h-auto"}`}
+                        width={150}
+                        height={150}
                         priority
                     />
                 </div>
 
                 <nav className="space-x-8 hidden md:flex text-white">
                     {links.map((link, idx) => (
-                        <a key={idx}
-                            href={link.link} className="hover:text-gray-300">{link.label}</a>
+                        <Link key={idx}
+                            href={link.link} className="hover:text-gray-300">{link.label}
+						</Link>
                     ))}
                 </nav>
 
