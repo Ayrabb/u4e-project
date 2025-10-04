@@ -1,5 +1,5 @@
 // components/Footer.tsx
-import { FaLinkedin, FaInstagram, FaFacebook, FaTimes } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaFacebook, FaTimes, FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -87,22 +87,27 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom section */}
+      
       <div className="mt-8 border-t border-white/20 pt-6 flex flex-col md:flex-row items-center justify-between">
-        {/* Social icons */}
+        
         <div className="flex space-x-4 mb-4 md:mb-0">
-          <a href="#" className="text-white hover:text-gray-300" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/rural-electrification-agency-of-nigeria/" className="text-white hover:text-gray-300" aria-label="LinkedIn">
             <FaLinkedin size={20} />
           </a>
-          <a href="#" className="text-white hover:text-gray-300" aria-label="X (Twitter)">
+          <a href="https://twitter.com/TheREANigeria" className="text-white hover:text-gray-300" aria-label="X (Twitter)">
             <FaTimes size={20} />
           </a>
-          <a href="#" className="text-white hover:text-gray-300" aria-label="Instagram">
+          <a href="https://www.instagram.com/realREANigeria/" className="text-white hover:text-gray-300" aria-label="Instagram">
             <FaInstagram size={20} />
           </a>
-          <a href="#" className="text-white hover:text-gray-300" aria-label="Facebook">
+          <a href="https://www.facebook.com/REANigeria" className="text-white hover:text-gray-300" aria-label="Facebook">
             <FaFacebook size={20} />
           </a>
+          <a href="https://youtube.com/@ruralelectrificationagency5481?si=ZY2FmRYa8QJ3Pboy" className="text-white hover:text-gray-300" aria-label="YouTube" target="_blank" rel="noopener noreferrer"
+>
+  <FaYoutube size={20} />
+</a>
+          
         </div>
 
         {/* Copyright */}
