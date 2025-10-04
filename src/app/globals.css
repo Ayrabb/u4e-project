@@ -5,6 +5,10 @@
   --foreground: #171717;
 }
 
+:root {
+    --navbar-height: 5rem; /* Default height */
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -17,6 +21,12 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --navbar-height: 4rem; /* Smaller height on mobile */
+    }
 }
 
 body {
