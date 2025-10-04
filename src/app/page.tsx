@@ -5,66 +5,15 @@ import Footer from "./components/footer";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "./components/navbar";
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <main className="relative min-h-screen font-montserrat">
-      {/* Navbar */}
-      <header className="bg-[#1b1b7a] text-white py-4 px-8 flex justify-between items-center">
-        {/* Logo (hidden on mobile) */}
-        <div className="font-bold text-xl hidden md:block">
-          <Image
-            src="/u4e_logo.png"
-            alt="U4E Logo"
-            width={65}
-            height={65}
-            priority
-          />
-        </div>
-
-        {/* Desktop nav */}
-        <nav className="space-x-8 hidden md:flex">
-          <a href="#" className="hover:text-gray-300">About</a>
-          <a href="#" className="hover:text-gray-300">News</a>
-          <a href="#" className="hover:text-gray-300">Stories</a>
-          <a href="#" className="hover:text-gray-300">Resources</a>
-          <a href="#" className="hover:text-gray-300">Contact us</a>
-        </nav>
-
-        {/* Mobile hamburger */}
-        <div className="md:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)}>
-            {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
-        </div>
-      </header>
-
-            {/* Mobile slide-in menu */}
-          <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ x: "-100%" }}   
-            animate={{ x: 0 }}         
-            exit={{ x: "-100%" }}      
-            transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-0 left-0 h-full w-3/4 bg-[#1b1b7a]/90 text-white shadow-lg z-50 p-8 flex flex-col space-y-6"
-          >
-            <button
-              className="self-end mb-6"
-              onClick={() => setMenuOpen(false)}
-            >
-              <FiX size={28} />
-            </button>
-            <a href="#" className="hover:text-gray-300">About</a>
-            <a href="#" className="hover:text-gray-300">News</a>
-            <a href="#" className="hover:text-gray-300">Stories</a>
-            <a href="#" className="hover:text-gray-300">Resources</a>
-            <a href="#" className="hover:text-gray-300">Contact us</a>
-          </motion.div>
-        )}
-      </AnimatePresence>
+     
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-start px-12 text-white">
@@ -80,7 +29,7 @@ export default function Home() {
         </div>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-[#1b1b7a]/30 -z-10" />
+        <div className="absolute inset-0 bg-[#004225]/15 -z-10" />
 
         <div>
           <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
@@ -187,7 +136,7 @@ export default function Home() {
       {/* Section 2: Partners */}
       <section className="bg-white py-16 px-8 lg:px-20 text-center">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Implementing partner */}
+          
           <div>
             <h3 className="font-semibold mb-4">Implementing partner</h3>
             <div className="flex justify-center">
@@ -201,7 +150,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Led by */}
+          
           <div>
             <h3 className="font-semibold mb-4">Led by</h3>
             <div className="flex justify-center">
@@ -215,7 +164,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Supported by */}
+          
           <div>
             <h3 className="font-semibold mb-4">Supported by</h3>
             <div className="flex justify-center">

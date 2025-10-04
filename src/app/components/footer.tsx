@@ -3,15 +3,11 @@ import { FaLinkedin, FaInstagram, FaFacebook, FaTimes } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1b1b7a] text-white py-10 px-6 md:px-16">
+    <footer className="bg-[#004225] text-white py-10 px-6 md:px-16">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
         {/* Logo + Contact */}
         <div>
-          <img
-            src="/u4e_logo.png"
-            alt="U4E Logo"
-            className="h-16 mb-4"
-          />
+          <img src="/u4e_logo.png" alt="U4E Logo" className="h-16 mb-4" />
           <p className="text-sm leading-relaxed">
             Rural Electrification Agency <br />
             22 Freetown Crescent, Asokoro, Abuja <br />
@@ -29,10 +25,31 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-3">RELEVANT SITES</h4>
           <ul className="space-y-1 text-sm">
-            <li><a href="#" className="hover:underline">Rural Electrification Agency</a></li>
-            <li><a href="#" className="hover:underline">United Nations</a></li>
-            <li><a href="#" className="hover:underline">Development Programme</a></li>
-            <li><a href="#" className="hover:underline">Rural Electrification Agency</a></li>
+            <li>
+              <a href="https://rea.gov.ng" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                Rural Electrification Agency
+              </a>
+            </li>
+            <li>
+              <a href="https://www.undp.org" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                United Nations Development Programme
+              </a>
+            </li>
+            <li>
+              <a href="https://www.thegef.org" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                The Global Environment Facility
+              </a>
+            </li>
+            <li>
+              <a href="https://rmi.org" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                RMI
+              </a>
+            </li>
+            <li>
+              <a href="https://energyalliance.org" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                Energy Alliance
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -40,10 +57,10 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-3">ABOUT U4E</h4>
           <ul className="space-y-1 text-sm">
-            <li><a href="#" className="hover:underline">Rural Electrification Agency</a></li>
-            <li><a href="#" className="hover:underline">United Nations</a></li>
-            <li><a href="#" className="hover:underline">Development Programme</a></li>
-            <li><a href="#" className="hover:underline">Rural Electrification Agency</a></li>
+            <li><a href="#" className="hover:underline">Who We Are</a></li>
+            <li><a href="#" className="hover:underline">What We Do</a></li>
+            <li><a href="#" className="hover:underline">Our Partners</a></li>
+            <li><a href="#" className="hover:underline">Our Impact</a></li>
           </ul>
         </div>
 
@@ -51,10 +68,10 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-3">RESOURCES</h4>
           <ul className="space-y-1 text-sm">
-            <li><a href="#" className="hover:underline">Rural Electrification Agency</a></li>
-            <li><a href="#" className="hover:underline">United Nations</a></li>
-            <li><a href="#" className="hover:underline">Development Programme</a></li>
-            <li><a href="#" className="hover:underline">Rural Electrification Agency</a></li>
+            <li><a href="#" className="hover:underline">Publications</a></li>
+            <li><a href="#" className="hover:underline">Reports</a></li>
+            <li><a href="#" className="hover:underline">Policy Documents</a></li>
+            <li><a href="#" className="hover:underline">Guidelines</a></li>
           </ul>
         </div>
 
@@ -62,10 +79,10 @@ export default function Footer() {
         <div>
           <h4 className="font-semibold mb-3">NEWS AND MEDIA</h4>
           <ul className="space-y-1 text-sm">
-            <li><a href="#" className="hover:underline">Rural Electrification Agency</a></li>
-            <li><a href="#" className="hover:underline">United Nations</a></li>
-            <li><a href="#" className="hover:underline">Development Programme</a></li>
-            <li><a href="#" className="hover:underline">Rural Electrification Agency</a></li>
+            <li><a href="#" className="hover:underline">News</a></li>
+            <li><a href="#" className="hover:underline">Events</a></li>
+            <li><a href="#" className="hover:underline">Press Releases</a></li>
+            <li><a href="#" className="hover:underline">Media Gallery</a></li>
           </ul>
         </div>
       </div>
@@ -90,7 +107,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-xs text-gray-300">
-          © All rights reserved
+          © {new Date().getFullYear()} All rights reserved
         </p>
       </div>
     </footer>
