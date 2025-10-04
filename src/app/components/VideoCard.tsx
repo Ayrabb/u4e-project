@@ -4,11 +4,10 @@ import React from "react";
 
 interface VideoCardProps {
   title: string;
-  image: string;
   videoUrl: string;
 }
 
-const VideoCard: React.FC<VideoCardProps> = ({ title, image, videoUrl }) => {
+const VideoCard: React.FC<VideoCardProps> = ({ title, videoUrl }) => {
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition-shadow">
       <div className="aspect-video bg-gray-200">
