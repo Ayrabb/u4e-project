@@ -1,12 +1,12 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import NewsSection from "./tabs/News";
 import GallerySection from "./tabs/Gallery";
 import VideoSection from "./tabs/Videos";
 import { NewsItem } from "../components/utilities";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 type Section = {
   label: string;
@@ -49,8 +49,9 @@ const HeroSection = ({ active, changeTab, sections } : { active: string, changeT
 
 export default function NewsPage() {
 	const router = useRouter();
-	const searchParams = useSearchParams();
-	const querytab = searchParams.get("tab") || "news";
+	// const searchParams = useSearchParams();
+	// const querytab = searchParams.get("tab") || "news";
+	const querytab = "news";
 	const [news, setNews] = useState<NewsItem[]>([]);
 	const sections = [
 		{
@@ -92,20 +93,24 @@ export default function NewsPage() {
 	const videoNews = news.filter((item) => item.video);
 
 	return (
+		// <Suspense fallback={<div>Loading...</div>}>
 		<main className="min-h-screen bg-white font-montserrat">
 			<Navbar />
 
+			
 			<HeroSection active={activeTab} changeTab={handleTabChange} sections={sections}/>
 
-			<main className="pb-6">
+			<div className="pb-6">
 				{activeTab === "news" && (<NewsSection />)}
 
 				{activeTab === "gallery" && (<GallerySection />)}
 
 				{activeTab === "videos" && (<VideoSection />)}
-			</main>
+			</div>
+			
 
 			<Footer />
 		</main>
+		// </Suspense>
 	);
 }
