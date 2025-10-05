@@ -17,19 +17,19 @@ const HeroSection = ({ active, changeTab, sections } : { active: string, changeT
 
 	return (
 		<section 
-			className="min-h-42 mt-[var(--navbar-height)] bg-gradient-to-b from-[#044D28] from-28% via-[#078042] via-86% to-[#099A4F] to-100% flex items-end"
+			className="lg:min-h-64 min-h-42 mt-[var(--navbar-height)] bg-gradient-to-b from-[#044D28] from-28% via-[#078042] via-86% to-[#099A4F] to-100% flex items-end"
 		>
 			<div className="flex flex-col h-full w-full space-y-4">
-				<div className="flex flex-col text-white mx-20">
-					<h2 className="text-5xl font-medium">News center</h2>
-					<p className="text-gray-300 text-lg text-base leading-relaxed max-w-3xl">
+				<div className="flex flex-col text-white mx-10 lg:mx-20">
+					<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">News center</h2>
+					<p className="text-gray-300 text-sm md:text-xl text-base leading-relaxed max-w-3xl">
 						Stay updated with the latest updates, stories and press releases from
 						U4E Nigeria.
 					</p>
 				</div>
 
 				<div className="border-t border-white/40 w-full pt-1">
-					<div className="flex flex-row mx-20 text-white space-x-3">
+					<div className="flex flex-row mx-10 lg:mx-20 text-white space-x-3">
 					{sections.map((section, idx) => (
 						<nav 
 							key={idx}
