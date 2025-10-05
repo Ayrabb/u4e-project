@@ -6,6 +6,7 @@ import NewsSection from "./tabs/News";
 import GallerySection from "./tabs/Gallery";
 import VideoSection from "./tabs/Videos";
 import { NewsItem } from "../components/utilities";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type Section = {
   label: string;
@@ -47,33 +48,45 @@ const HeroSection = ({ active, changeTab, sections } : { active: string, changeT
 }
 
 export default function NewsPage() {
+	const router = useRouter();
+	const searchParams = useSearchParams();
+	const querytab = searchParams.get("tab") || "news";
 	const [news, setNews] = useState<NewsItem[]>([]);
 	const sections = [
 		{
 			label: "News",
-			tab: '/news'
+			tab: 'news'
 		},
 		{
 			label: "Gallery",
-			tab: '/gallery'
+			tab: 'gallery'
 		},
 		{
 			label: "Videos",
-			tab: '/videos'
+			tab: 'videos'
 		}
 	];
-	const [activeTab, setActiveTab] = useState(sections[0].tab);
+	const [activeTab, setActiveTab] = useState(querytab || sections[0].tab);
 
 	useEffect(() => {
 		async function fetchNews() {
-		const res = await fetch("/api/news");
-		if (res.ok) {
-			const data = await res.json();
-			setNews(data);
-		}
+			const res = await fetch("/api/news");
+			if (res.ok) {
+				const data = await res.json();
+				setNews(data);
+			}
 		}
 		fetchNews();
 	}, []);
+
+	useEffect(() => {
+		setActiveTab(querytab);
+	}, [querytab]);
+
+	const handleTabChange = (tab: string) => {
+		setActiveTab(tab);
+		router.push(`/news?tab=${tab}`, { scroll: false });
+	};
 
 	const imageNews = news.filter((item) => item.image);
 	const videoNews = news.filter((item) => item.video);
@@ -82,15 +95,14 @@ export default function NewsPage() {
 		<main className="min-h-screen bg-white font-montserrat">
 			<Navbar />
 
-			{/* Hero Section */}
-			<HeroSection active={activeTab} changeTab={setActiveTab} sections={sections}/>
+			<HeroSection active={activeTab} changeTab={handleTabChange} sections={sections}/>
 
 			<main className="pb-6">
-				{activeTab === "/news" && (<NewsSection />)}
+				{activeTab === "news" && (<NewsSection />)}
 
-				{activeTab === "/gallery" && (<GallerySection />)}
+				{activeTab === "gallery" && (<GallerySection />)}
 
-				{activeTab === "/videos" && (<VideoSection />)}
+				{activeTab === "videos" && (<VideoSection />)}
 			</main>
 
 			<Footer />
