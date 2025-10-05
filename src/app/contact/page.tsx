@@ -26,20 +26,19 @@ export default function ContactPage() {
       <Navbar />
 
       <section 
-            className="min-h-42 mt-[var(--navbar-height)] bg-gradient-to-b from-[#044D28] from-28% via-[#078042] via-86% to-[#099A4F] to-100% flex items-center"
-        >
-          <div className="flex flex-col text-white mx-20">
-            <h1 className="text-5xl font-medium">Contact us</h1>
-            <p className="text-gray-300 text-lg text-base leading-relaxed max-w-3xl">
-              Get in touch with us by completing the form below or calling us directly.
-            </p>
-          </div>
+        className="min-h-42 mt-[var(--navbar-height)] bg-gradient-to-b from-[#044D28] from-28% via-[#078042] via-86% to-[#099A4F] to-100% flex items-center"
+      >
+        <div className="flex flex-col text-white mx-10 lg:mx-20">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">Contact us</h2>
+          <p className="text-gray-300 text-sm md:text-xl text-base leading-relaxed max-w-3xl">
+            Get in touch with us by completing the form below or calling us directly.
+          </p>
+				</div>
       </section>
 
       {/* Contact Content */}
       <section className="bg-white py-12 px-4 md:px-12 flex-1">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {}
           <div className="space-y-8">
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -63,7 +62,7 @@ export default function ContactPage() {
             
             <div className="bg-white shadow-md rounded-lg p-6">
               <h2 className="text-xl font-semibold text-gray-800 mb-4">Enquiry</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <input
                     type="text"
