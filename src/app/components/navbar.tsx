@@ -82,18 +82,46 @@ export default function Navbar() {
                     } px-8 flex justify-between items-center`}
             >
                 {/* Desktop Logo */}
-                <div
+                <div 
                     onClick={() => router.push("/")}
-                    className="font-bold text-xl cursor-pointer hidden lg:block"
+                    className="flex flex-row items-center gap-4 cursor-pointer"
                 >
-                    <Image
-                        src="/u4e_logo.png"
-                        alt="U4E Logo"
-                        className={`${(isScrolled || alwaysBgNav) ? "w-24 h-auto" : "w-30 h-auto"}`}
-                        width={150}
-                        height={150}
-                        priority
-                    />
+                    <div className="block">
+                        <Image
+                            src="/rea-white.png"
+                            alt="REA Logo"
+                            className="h-14 w-auto"
+                            width={100}
+                            height={40}
+                            priority
+                        />
+                    </div>
+
+                    <div className="block h-10 w-px bg-white/30"></div>
+
+                    <div className="block">
+                        <Image
+                            src="/unep-white.png"
+                            alt="UNEP Logo"
+                            className="h-12 w-auto"
+                            width={100}
+                            height={40}
+                            priority
+                        />
+                    </div>
+
+                    <div className="block h-10 w-px bg-white/30"></div>
+
+                    <div className="block">
+                        <Image
+                            src="/u4e_logo.png"
+                            alt="U4E Logo"
+                            className="h-8 w-auto"
+                            width={120}
+                            height={48}
+                            priority
+                        />
+                    </div>
                 </div>
 
                 {/* Desktop Navigation */}

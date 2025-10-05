@@ -216,15 +216,12 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/40 -z-10" />
 
         <div>
-          <h1 className="text-4xl md:text-5xl font-semibold leading-tight">
-            United for Efficiency Initiative <br /> in
-            <span className="text-green-800"> Nigeria</span>
+          <h1 className="text-2xl md:text-5xl font-semibold leading-tight">
+            The Off-grid Refrigeration Guidelines Pilot Implementation Programme
           </h1>
 
-          <p className="mt-4 text-gray-200 leading-relaxed text-left">
-            The Africa Minigrids Program is supporting access to clean energy by increasing 
-            the financial viability, and promoting scaled-up commercial investment, in 
-            renewable energy minigrids in Africa
+          <p className="mt-4 text-xl text-gray-100 leading-relaxed text-left">
+            Catalyzing the widespread adoption and deployment of energy-efficient off-grid refrigeration solutions.
           </p>
         </div>
       </section>
