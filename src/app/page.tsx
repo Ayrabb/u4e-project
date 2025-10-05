@@ -160,73 +160,69 @@ const NewsSection = () => {
 }
 
 const Partners = () => (
-    <section className="bg-white py-12 px-8 lg:px-20">
-        <div className="container mx-auto grid grid-cols-2 gap-16">
-            {/* Implementing partner */}
-            <div className="flex flex-col items-center space-y-6">
-                <h3 className="font-medium text-md">Implementing partner</h3>
-                <div className="relative w-64 h-32">
-                    <Image
-                        src="/main_logo.png"
-                        alt="Implementing partner logo"
-                        fill
-                        className="object-contain"
-                    />
-                </div>
-				<h3 className="font-semibold text-lg">Rural Electrification Agency</h3>
-            </div>
+	<section className="bg-white py-12 px-6 sm:px-8 lg:px-20">
+		<div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 text-center">
+			{/* Implementing partner */}
+			<div className="flex flex-col items-center space-y-4 sm:space-y-6">
+				<h3 className="font-medium text-sm sm:text-lg text-gray-700">
+					Implementing Partner
+				</h3>
+				<div className="relative w-44 h-20 sm:w-56 sm:h-28 md:w-64 md:h-32">
+					<Image
+						src="/main_logo.png"
+						alt="Implementing partner logo"
+						fill
+						className="object-contain"
+					/>
+				</div>
+				<h3 className="font-semibold text-base sm:text-lg md:text-xl text-[#044D28]">
+					Rural Electrification Agency
+				</h3>
+			</div>
 
-            {/* Led by */}
-            <div className="flex flex-col items-center space-y-6">
-                <h3 className="font-medium text-md">Led by</h3>
-                <div className="relative w-64 h-32">
-                    <Image
-                        src="/Unep_logo.png"
-                        alt="UNEP logo"
-                        fill
-                        className="object-contain"
-                    />
-                </div>
-				<h3 className="font-semibold text-lg">United Nations Environment Programme</h3>
-            </div>
-        </div>
-    </section>
+			{/* Led by */}
+			<div className="flex flex-col items-center space-y-4 sm:space-y-6">
+				<h3 className="font-medium text-sm sm:text-lg text-gray-700">Led By</h3>
+				<div className="relative w-44 h-20 sm:w-56 sm:h-28 md:w-64 md:h-32">
+					<Image
+						src="/Unep_logo.png"
+						alt="UNEP logo"
+						fill
+						className="object-contain"
+					/>
+				</div>
+				<h3 className="font-semibold text-base sm:text-lg md:text-xl text-[#044D28]">
+					United Nations Environment Programme
+				</h3>
+			</div>
+		</div>
+	</section>
 );
 
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen font-montserrat">
-    	<Navbar />
+	<main className="min-h-screen font-montserrat bg-white">
+		<Navbar />
 
-      {/* Hero Section */}
-      <section className="relative min-h-[95vh] flex items-center justify-start px-12 text-white">
-        {/* Background image */}
-        <div className="absolute inset-0 -z-10">
-          <Image
-            src="/mathias-owa-martins-WeEu-3KVhkE-unsplash.jpg"
-            alt="Cityscape"
-            fill
-            priority
-            className="object-cover object-center transform scale-x-[-1] blur-xs"
-          />
-        </div>
+		{/* Hero Section */}
+		<section
+			className="relative w-full h-[60vh] md:h-[70vh] lg:h-[95vh] flex items-center justify-start px-5 sm:px-8 lg:px-12 text-white
+						bg-[url('/mathias-owa-martins-WeEu-3KVhkE-unsplash.jpg')] bg-cover bg-center"
+			>
+			<div className="absolute inset-0 bg-black/50"></div>
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/40 -z-10" />
+			<div className="max-w-4xl py-8 md:py-12 relative z-10">
+				<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4 md:mb-6">
+					The Off-grid Refrigeration Guidelines Pilot Implementation Programme
+				</h1>
+				<p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed max-w-3xl">
+					Catalyzing the widespread adoption and deployment of energy-efficient off-grid refrigeration solutions.
+				</p>
+			</div>
+		</section>
 
-        <div>
-          <h1 className="text-2xl md:text-5xl font-semibold leading-tight">
-            The Off-grid Refrigeration Guidelines Pilot Implementation Programme
-          </h1>
-
-          <p className="mt-4 text-xl text-gray-100 leading-relaxed text-left">
-            Catalyzing the widespread adoption and deployment of energy-efficient off-grid refrigeration solutions.
-          </p>
-        </div>
-      </section>
-
-      <NewsSection />
+		<NewsSection />
 
 		{/* Supporting Local Energy Grids Section */}
 		<section className="bg-[#01130A] h-[80vh] py-10 px-8 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
@@ -259,7 +255,7 @@ export default function Home() {
 		{/* Section 2: Partners */}
 		<Partners />
 
-		<section>
+		<section className="pt-10">
 			<Footer />
 		</section>
     </main>
