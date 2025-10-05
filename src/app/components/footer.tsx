@@ -1,120 +1,162 @@
-// components/Footer.tsx
-import { FaLinkedin, FaInstagram, FaFacebook, FaTimes, FaYoutube } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaSquareFacebook, FaXTwitter } from "react-icons/fa6";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+
+const relevant_sites = [
+	{ label: "Rural Electrification Agency", url: "https://rea.gov.ng/" },
+	{ label: "United Nations Environment Programme", url: "https://www.unep.org/" },
+	{ label: "United for Efficiency initiative", url: "https://united4efficiency.org/" },
+	{ label: "Clean Cooling Collaborative", url: "https://cleancoolingcollaborative.org/" },
+];
+
+const about_u4e = [
+	{ label: "About us", url: "/about" },
+	{ label: "In the news", url: "/news" },
+	{ label: "Impact stories", url: "/stories" }
+];
+
+const news = [
+	{ label: "All news", url: "/news?tab=news" },
+	{ label: "Gallery", url: "/news?tab=gallery" },
+	{ label: "Videos", url: "/news?tab=videos" }
+];
 
 export default function Footer() {
+  const router = useRouter();
+
   return (
-    <footer className="bg-[#004225] text-white py-10 px-6 md:px-16">
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
-        {/* Logo + Contact */}
-        <div>
-          <img src="/u4e_logo.png" alt="U4E Logo" className="h-16 mb-4" />
-          <p className="text-sm leading-relaxed">
-            Rural Electrification Agency <br />
-            22 Freetown Crescent, Asokoro, Abuja <br />
-            <a href="tel:+2349070790171" className="hover:underline">
-              +2349070790171
+    <footer className="bg-[#044D28] text-white py-12 px-6 sm:px-12 lg:px-10 border-t border-[#0a6a3c]/40">
+		<div
+			className=" mx-auto flex flex-col md:flex-col lg:flex-row
+			items-start text-start lg:items-start lg:text-left gap-6 md:gap-12 lg:gap-16 max-w-9xl"
+		>
+			<div className="w-full lg:w-auto flex flex-col items-center lg:items-center">
+				<Image
+					src="/rea-white.png"
+					alt="REA Logo"
+					width={220}
+					height={140}
+					className="object-contain"
+				/>
+				{/* Copyright */}
+				<p className="text-xs text-gray-300 text-center md:text-center lg:text-left mt-4 lg:mt-6 hidden lg:block">
+					© {new Date().getFullYear()} All rights reserved.
+				</p>
+			</div>
+		
+			<div
+				className="flex flex-col w-full lg:w-auto
+				lg:flex-row lg:justify-center gap-4 lg:gap-16 [&>*]:w-full lg:[&>*]:w-auto"
+			>
+				{/* Relevant Sites */}
+				<div
+					className="py-6 px-0 border-t border-[#0a6a3c]/40 first:border-t-0 md:border-t md:first:border-t-0 lg:border-none lg:py-0"
+				>
+					<h4 className="font-semibold text-sm tracking-wide mb-3 uppercase">Relevant Sites</h4>
+					<ul className="space-y-1 text-sm">
+					{relevant_sites.map((site, idx) => (
+						<li key={idx}>
+							<a onClick={() => router.push(site.url)} className="hover:underline cursor-pointer">
+								{site.label}
+							</a>
+						</li>
+					))}
+					</ul>
+				</div>
+
+				{/* About U4E */}
+				<div
+					className="
+					py-6 px-0
+					border-t border-[#0a6a3c]/40
+					md:border-t
+					lg:border-none lg:py-0
+					"
+				>
+					<h4 className="font-semibold text-sm tracking-wide mb-3 uppercase">Learn more</h4>
+					<ul className="space-y-1 text-sm">
+					{about_u4e.map((item, idx) => (
+						<li key={idx}>
+						<a onClick={() => router.push(item.url)} className="hover:underline cursor-pointer">
+							{item.label}
+						</a>
+						</li>
+					))}
+					</ul>
+				</div>
+
+				{/* News and Media */}
+				<div
+					className="
+					py-6 px-0
+					border-t border-[#0a6a3c]/40
+					md:border-t
+					lg:border-none lg:py-0
+					"
+				>
+					<h4 className="font-semibold text-sm tracking-wide mb-3 uppercase">News & Media</h4>
+					<ul className="space-y-1 text-sm">
+					{news.map((item, idx) => (
+						<li key={idx}>
+						<a onClick={() => router.push(item.url)} className="hover:underline cursor-pointer">
+							{item.label}
+						</a>
+						</li>
+					))}
+					</ul>
+				</div>
+			</div>
+
+        <div className="hidden lg:flex flex-col items-end space-y-4 min-w-[240px]">
+          <div className="text-sm text-end leading-relaxed">
+            <a href="mailto:info@rea.gov.ng" className="hover:underline block">
+              info@rea.gov.ng
             </a>
-            ,{" "}
-            <a href="tel:+2349035073791" className="hover:underline">
-              +2349035073791
+            <a href="tel:+2348036645113" className="hover:underline block">
+              +234 803 664 5113
             </a>
-          </p>
-        </div>
+            <p>Rural Electrification Agency</p>
+            <p>22 Freetown Crescent, Asokoro, Abuja</p>
+          </div>
 
-        {/* Relevant Sites */}
-        <div>
-          <h4 className="font-semibold mb-3">RELEVANT SITES</h4>
-          <ul className="space-y-1 text-sm">
-            <li>
-              <a href="https://rea.gov.ng" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Rural Electrification Agency
-              </a>
-            </li>
-            <li>
-              <a href="https://www.undp.org" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                United Nations Development Programme
-              </a>
-            </li>
-            <li>
-              <a href="https://www.thegef.org" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                The Global Environment Facility
-              </a>
-            </li>
-            <li>
-              <a href="https://rmi.org" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                RMI
-              </a>
-            </li>
-            <li>
-              <a href="https://energyalliance.org" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                Energy Alliance
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* About U4E */}
-        <div>
-          <h4 className="font-semibold mb-3">ABOUT U4E</h4>
-          <ul className="space-y-1 text-sm">
-            <li><a href="#" className="hover:underline">Who We Are</a></li>
-            <li><a href="#" className="hover:underline">What We Do</a></li>
-            <li><a href="#" className="hover:underline">Our Partners</a></li>
-            <li><a href="#" className="hover:underline">Our Impact</a></li>
-          </ul>
-        </div>
-
-        {/* Resources */}
-        <div>
-          <h4 className="font-semibold mb-3">RESOURCES</h4>
-          <ul className="space-y-1 text-sm">
-            <li><a href="#" className="hover:underline">Publications</a></li>
-            <li><a href="#" className="hover:underline">Reports</a></li>
-            <li><a href="#" className="hover:underline">Policy Documents</a></li>
-            <li><a href="#" className="hover:underline">Guidelines</a></li>
-          </ul>
-        </div>
-
-        {/* News and Media */}
-        <div>
-          <h4 className="font-semibold mb-3">NEWS AND MEDIA</h4>
-          <ul className="space-y-1 text-sm">
-            <li><a href="#" className="hover:underline">News</a></li>
-            <li><a href="#" className="hover:underline">Events</a></li>
-            <li><a href="#" className="hover:underline">Press Releases</a></li>
-            <li><a href="#" className="hover:underline">Media Gallery</a></li>
-          </ul>
+          <div className="flex gap-4 justify-end">
+            <a href="#" aria-label="LinkedIn" className="hover:text-gray-300">
+              <FaLinkedin className="w-8 h-auto" size={24} />
+            </a>
+            <a href="#" aria-label="Twitter" className="hover:text-gray-300">
+              <FaXTwitter className="w-8 h-auto" size={24} />
+            </a>
+            <a href="#" aria-label="Instagram" className="hover:text-gray-300">
+              <FaInstagram className="w-8 h-auto" size={24} />
+            </a>
+            <a href="#" aria-label="Facebook" className="hover:text-gray-300">
+              <FaSquareFacebook className="w-8 h-auto" size={24} />
+            </a>
+          </div>
         </div>
       </div>
 
-      
-      <div className="mt-8 border-t border-white/20 pt-6 flex flex-col md:flex-row items-center justify-between">
-        
-        <div className="flex space-x-4 mb-4 md:mb-0">
-          <a href="https://www.linkedin.com/company/rural-electrification-agency-of-nigeria/" className="text-white hover:text-gray-300" aria-label="LinkedIn">
-            <FaLinkedin size={20} />
-          </a>
-          <a href="https://twitter.com/TheREANigeria" className="text-white hover:text-gray-300" aria-label="X (Twitter)">
-            <FaTimes size={20} />
-          </a>
-          <a href="https://www.instagram.com/realREANigeria/" className="text-white hover:text-gray-300" aria-label="Instagram">
-            <FaInstagram size={20} />
-          </a>
-          <a href="https://www.facebook.com/REANigeria" className="text-white hover:text-gray-300" aria-label="Facebook">
-            <FaFacebook size={20} />
-          </a>
-          <a href="https://youtube.com/@ruralelectrificationagency5481?si=ZY2FmRYa8QJ3Pboy" className="text-white hover:text-gray-300" aria-label="YouTube" target="_blank" rel="noopener noreferrer"
->
-  <FaYoutube size={20} />
-</a>
-          
-        </div>
+		<div className="block lg:hidden mt-10">
+			<div className="flex gap-6 justify-center">
+				<a href="#" aria-label="LinkedIn" className="hover:text-gray-300">
+					<FaLinkedin className="w-8 h-auto" size={24} />
+				</a>
+				<a href="#" aria-label="Twitter" className="hover:text-gray-300">
+					<FaXTwitter className="w-8 h-auto" size={24} />
+				</a>
+				<a href="#" aria-label="Instagram" className="hover:text-gray-300">
+					<FaInstagram className="w-8 h-auto" size={24} />
+				</a>
+				<a href="#" aria-label="Facebook" className="hover:text-gray-300">
+					<FaSquareFacebook className="w-8 h-auto" size={24} />
+				</a>
+			</div>
+		</div>
 
-        {/* Copyright */}
-        <p className="text-xs text-gray-300">
-          © {new Date().getFullYear()} All rights reserved
-        </p>
-      </div>
+		{/* Copyright */}
+		<p className="text-xs text-gray-300 text-center md:text-center lg:text-left mt-4 lg:mt-6 block lg:hidden pt-5">
+			© {new Date().getFullYear()} All rights reserved.
+		</p>
     </footer>
   );
 }
