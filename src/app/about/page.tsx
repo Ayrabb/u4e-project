@@ -22,30 +22,36 @@ const AboutREA = () => (
             </div>
 
             {/* Our Mandate Section */}
-            <div className="mb-8">
-                <h4 className="text-lg sm:text-xl text-[#044D28] font-normal mb-4">
-                    Our mandate
+          <div className="grid md:grid-cols-2 gap-2 items-center mb-8">
+            <div>
+                <h4 className="text-xl md:text-xl text-[#044D28] font-normal mb-4">
+                Our mandate
                 </h4>
-                <div className="space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed">
-                    <p>The Mandate of the REA is structured around three dimensions:</p>
-                    <ul className="space-y-3 ml-2 sm:ml-4">
-                        <li className="flex gap-2 sm:gap-3">
-                            <span className="text-[#044D28] font-bold min-w-[1.5rem]">1.</span>
-                            <span>Promoting Rural Electrification in the country</span>
-                        </li>
-                        <li className="flex gap-2 sm:gap-3">
-                            <span className="text-[#044D28] font-bold min-w-[1.5rem]">2.</span>
-                            <span>Coordinating the Rural Electrification Programmes in the country</span>
-                        </li>
-                        <li className="flex gap-2 sm:gap-3">
-                            <span className="text-[#044D28] font-bold min-w-[1.5rem]">3.</span>
-                            <span>Administering the Rural Electrification Fund (REF) to promote, support and provide rural electrification through Public and Private Sector Participation</span>
-                        </li>
-                    </ul>
+                <div className="text-gray-700 text-md leading-relaxed">
+                <p className="mb-4">The Mandate of the REA is structured around three dimensions:</p>
+                <ul className="flex flex-wrap gap-x-6 gap-y-3 ml-4">
+                    <li className="flex min-w-[300px]">
+                    <span className="text-[#044D28] font-bold mr-2">1.</span>
+                    <span>Promoting Rural Electrification in the country</span>
+                    </li>
+                    <li className="flex min-w-[300px]">
+                    <span className="text-[#044D28] font-bold mr-2">2.</span>
+                    <span>Coordinating the Rural Electrification Programmes in the country</span>
+                    </li>
+                    <li className="flex min-w-[300px]">
+                    <span className="text-[#044D28] font-bold mr-2">3.</span>
+                    <span>
+                        Administering the Rural Electrification Fund (REF) to promote, support and provide
+                        rural electrification through Public and Private Sector Participation
+                    </span>
+                    </li>
+                </ul>
                 </div>
             </div>
+            </div>
 
-            <div className="space-y-4 text-gray-700 text-sm sm:text-base leading-relaxed mb-6">
+
+            <div className="space-y-4 text-gray-700 text-md leading-relaxed mb-6">
                 <p>
                     Furthermore, to promote rural electrification and coordinate programmes in the country, the 
                     Agency also creates an enabling environment by conducting feasibility assessments, energy 
