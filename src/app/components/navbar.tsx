@@ -78,7 +78,7 @@ export default function Navbar() {
         <>
             <header
                 style={{ height: 'var(--navbar-height)' }}
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${(isScrolled || alwaysBgNav) ? 'bg-[#044D28] py-4' : 'bg-transparent py-8'
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${(isScrolled || alwaysBgNav) ? 'bg-[#044D28] py-2' : 'bg-transparent py-8'
                     } px-8 flex justify-between items-center`}
             >
                 {/* Desktop Logo */}
@@ -90,33 +90,33 @@ export default function Navbar() {
                         <Image
                             src="/rea-white.png"
                             alt="REA Logo"
-                            className="h-14 w-auto"
+                            className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto"
                             width={100}
                             height={40}
                             priority
                         />
                     </div>
 
-                    <div className="block h-10 w-px bg-white/30"></div>
+                    <div className="block h-8 sm:h-10 md:h-12 lg:h-14 w-px bg-white/30"></div>
 
                     <div className="block">
                         <Image
                             src="/unep-white.png"
                             alt="UNEP Logo"
-                            className="h-12 w-auto"
+                            className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto"
                             width={100}
                             height={40}
                             priority
                         />
                     </div>
 
-                    <div className="block h-10 w-px bg-white/30"></div>
+                    <div className="block h-8 sm:h-10 md:h-12 lg:h-14 w-px bg-white/30"></div>
 
                     <div className="block">
                         <Image
                             src="/u4e_logo.png"
                             alt="U4E Logo"
-                            className="h-8 w-auto"
+                            className="h-6 md:h-8 w-auto"
                             width={120}
                             height={48}
                             priority
@@ -199,12 +199,12 @@ export default function Navbar() {
                         transition={{ type: "tween", duration: 0.3 }}
                         className="fixed top-0 left-0 h-full w-3/4 bg-[#044D28] text-white shadow-lg z-50 p-8 flex flex-col overflow-y-auto"
                     >
-                        <button
+                        {/* <button
                             className="self-end mb-6"
                             onClick={() => setMenuOpen(false)}
                         >
                             <FiX size={28} />
-                        </button>
+                        </button> */}
 
                         <nav className="flex flex-col space-y-4">
                             {links.map((link, idx) => (

@@ -20,7 +20,7 @@ const VideoCard: React.FC<VideoCardProps> = ({ title, videoUrl }) => {
         />
       </div>
       <div className="p-4">
-        <h3 className="font-semibold text-lg">{title}</h3>
+        <h3 className="font-semibold text-black text-lg">{title}</h3>
       </div>
     </div>
   );
