@@ -6,7 +6,7 @@ import NewsSection from "./tabs/News";
 import GallerySection from "./tabs/Gallery";
 import VideoSection from "./tabs/Videos";
 import { NewsItem } from "../components/utilities";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 type Section = {
   label: string;
@@ -47,12 +47,10 @@ const HeroSection = ({ active, changeTab, sections } : { active: string, changeT
 	);
 }
 
-export default function NewsPage() {
+const Tabs = () => {
 	const router = useRouter();
-	// const searchParams = useSearchParams();
-	// const querytab = searchParams.get("tab") || "news";
-	const querytab = "news";
-	const [news, setNews] = useState<NewsItem[]>([]);
+	const searchParams = useSearchParams();
+	const querytab = searchParams.get("tab") || "news";
 	const sections = [
 		{
 			label: "News",
@@ -70,6 +68,33 @@ export default function NewsPage() {
 	const [activeTab, setActiveTab] = useState(querytab || sections[0].tab);
 
 	useEffect(() => {
+		setActiveTab(querytab);
+	}, [querytab]);
+
+	const handleTabChange = (tab: string) => {
+		setActiveTab(tab);
+		router.push(`/news?tab=${tab}`, { scroll: false });
+	};
+
+	return (
+		<>
+			<HeroSection active={activeTab} changeTab={handleTabChange} sections={sections}/>
+
+			<div className="pb-6">
+				{activeTab === "news" && (<NewsSection />)}
+
+				{activeTab === "gallery" && (<GallerySection />)}
+
+				{activeTab === "videos" && (<VideoSection />)}
+			</div>
+		</>
+	);
+};
+
+export default function NewsPage() {
+	const [news, setNews] = useState<NewsItem[]>([]);
+
+	useEffect(() => {
 		async function fetchNews() {
 			const res = await fetch("/api/news");
 			if (res.ok) {
@@ -80,37 +105,18 @@ export default function NewsPage() {
 		fetchNews();
 	}, []);
 
-	useEffect(() => {
-		setActiveTab(querytab);
-	}, [querytab]);
-
-	const handleTabChange = (tab: string) => {
-		setActiveTab(tab);
-		router.push(`/news?tab=${tab}`, { scroll: false });
-	};
-
 	const imageNews = news.filter((item) => item.image);
 	const videoNews = news.filter((item) => item.video);
 
 	return (
-		// <Suspense fallback={<div>Loading...</div>}>
 		<main className="min-h-screen bg-white font-montserrat">
 			<Navbar />
 
-			
-			<HeroSection active={activeTab} changeTab={handleTabChange} sections={sections}/>
-
-			<div className="pb-6">
-				{activeTab === "news" && (<NewsSection />)}
-
-				{activeTab === "gallery" && (<GallerySection />)}
-
-				{activeTab === "videos" && (<VideoSection />)}
-			</div>
-			
+			<Suspense fallback={<div>Loading...</div>}>
+				<Tabs />
+			</Suspense>
 
 			<Footer />
 		</main>
-		// </Suspense>
 	);
 }

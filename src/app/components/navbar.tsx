@@ -142,7 +142,7 @@ export default function Navbar() {
                                     >
                                         {link.label}
                                         <FiChevronDown
-                                            className={`transition-transform duration-200 ${activeDropdown === link.label ? 'rotate-180' : ''
+                                            className={`transition-transform duration-300 ${activeDropdown === link.label ? 'rotate-180' : ''
                                                 }`}
                                             size={16}
                                         />
@@ -155,8 +155,8 @@ export default function Navbar() {
                                                 initial={{ opacity: 0, y: -10 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 exit={{ opacity: 0, y: -10 }}
-                                                transition={{ duration: 0.2 }}
-                                                className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-xl py-2 min-w-[200px] overflow-hidden"
+                                                transition={{ duration: 0.3 }}
+                                                className="absolute top-full left-0 bg-white rounded-lg shadow-xl mt-1 py-2 min-w-[200px] overflow-hidden"
                                             >
                                                 {link.subLinks.map((subLink, subIdx) => (
                                                     <Link
