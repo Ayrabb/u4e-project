@@ -1,65 +1,46 @@
-// app/components/GlanceSection.tsx
 import Image from "next/image";
-
-type Card = {
-	title: string;
-	text: string;
-	imgSrc: string;
-	imgAlt: string;
-};
-
-const cards: Card[] = [
-	{
-		title: "Clean Cooling",
-		text: "Scaling up efficient, climate-friendly fans and air conditioners to cut energy use and emissions.",
-		imgSrc: "/rural-fan.jpg",
-		imgAlt: "Product Registration",
-	},
-	{
-		title: "Off-Grid Refrigeration",
-		text: "Piloting solar-powered cooling in rural communities to preserve food and medicine.",
-		imgSrc: "/woman-fridge.jpg",
-		imgAlt: "Product Registration",
-	},
-	{
-		title: "Policy & Standards",
-		text: "Nigerian experts and U4E partners shaping standards and labels together.",
-		imgSrc: "/men-talking.jpg",
-		imgAlt: "Product Registration",
-	},
-	{
-		title: "Climate & Cost Savings",
-		text: "Reducing electricity demand, lowering bills, and helping Nigeria meet its climate targets.",
-		imgSrc: "/naira.jpg",
-		imgAlt: "Product Registration",
-	},
-];
 
 export default function GlanceSection() {
 	return (
-		<section className="bg-white py-16 px-8 md:px-20">
-			<h2 className="text-2xl md:text-3xl font-medium text-center text-[#BFAB25] mb-10">
-				U4E in Nigeria
-			</h2>
+		<section className="bg-white py-16 px-6 md:px-20 flex flex-col lg:flex-row items-center gap-10">
+			<div className="flex-1 text-gray-700">
+				<h2 className="text-2xl md:text-3xl font-medium text-[#BFAB25] mb-6">
+					The Off-grid Refrigeration Guidelines Pilot Implementation Programme is transforming how rural communities access and use energy-efficient cooling solutions.
+				</h2>
 
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-				{cards.map((card, idx) => (
-					<div key={idx} className="relative h-76 overflow-hidden shadow-lg">
-						<Image
-							src={card.imgSrc}
-							alt={card.imgAlt}
-							fill
-							className="object-cover"
-						/>
+				<p className="text-base md:text-lg leading-relaxed mb-4">
+					The <span className="font-semibold">United for Efficiency (U4E)</span> initiative, led by the
+					United Nations Environment Programme (UNEP), partners with the{" "}
+					<span className="font-semibold">Rural Electrification Agency (REA)</span> to accelerate the
+					adoption of energy-efficient and climate-friendly technologies in Nigeria. Through the 
+					<span className="font-semibold"> Off-grid Refrigeration Guidelines Pilot Implementation Programme</span>, the initiative focuses on
+					introducing sustainable cooling solutions to rural and underserved communities.
+				</p>
 
-						<div className="absolute inset-0 bg-black/50"></div>
+				<p className="text-base md:text-lg leading-relaxed mb-4">
+					This partnership aims to enhance food security, healthcare, and economic opportunities by
+					deploying energy-efficient off-grid refrigeration systems. It also supports Nigeria’s
+					commitment to cleaner energy use, lower emissions, and the Sustainable Development Goals,
+					especially Affordable and Clean Energy, Responsible Consumption and Production, and Climate
+					Action.
+				</p>
 
-						<div className="absolute bottom-0 py-4 left-4 right-4 text-white flex flex-col h-full justify-between">
-							<h3 className="text-xl font-medium">{card.title}</h3>
-							<p className="text-lg mt-2">{card.text}</p>
-						</div>
-					</div>
-				))}
+				<p className="text-base md:text-lg leading-relaxed">
+					Together, UNEP and REA are demonstrating how innovative technology, sound policy, and
+					community engagement can transform livelihoods while protecting the environment.
+				</p>
+			</div>
+
+			<div className="flex-1 w-full max-w-lg mx-auto">
+				<div className="relative w-full h-64 sm:h-80 md:h-96 rounded-xs overflow-hidden shadow">
+					<Image
+						src="/event.jpg"
+						alt="U4E Nigeria event"
+						fill
+						className="object-cover object-center"
+						priority
+					/>
+				</div>
 			</div>
 		</section>
 	);

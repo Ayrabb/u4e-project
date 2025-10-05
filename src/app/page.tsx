@@ -160,45 +160,62 @@ const NewsSection = () => {
 }
 
 const Partners = () => (
-	<section className="bg-white py-12 px-6 sm:px-8 lg:px-20">
-		<div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 text-center">
-			{/* Implementing partner */}
-			<div className="flex flex-col items-center space-y-4 sm:space-y-6">
-				<h3 className="font-medium text-sm sm:text-lg text-gray-700">
-					Implementing Partner
-				</h3>
-				<div className="relative w-44 h-20 sm:w-56 sm:h-28 md:w-64 md:h-32">
-					<Image
-						src="/main_logo.png"
-						alt="Implementing partner logo"
+	<section className="bg-white pb-12 sm:pb-16 md:pb-20 px-6 sm:px-8 lg:px-20 relative">
+		<div className="container mx-auto">
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 text-center mb-12 md:mb-16">
+				<div className="flex flex-col items-center space-y-4 sm:space-y-6">
+					<h3 className="font-medium text-sm sm:text-base text-gray-600 uppercase tracking-wide">
+						Implemented by
+					</h3>
+					<div className="relative w-48 h-24 sm:w-56 sm:h-28 md:w-64 md:h-32">
+						<Image
+							src="/main_logo.png"
+							alt="Rural Electrification Agency logo"
+							fill
+							className="object-contain"
+						/>
+					</div>
+					<h3 className="font-medium text-lg sm:text-xl md:text-2xl text-[#044D28]">
+						Rural Electrification Agency
+					</h3>
+				</div>
+
+				<div className="flex flex-col items-center space-y-4 sm:space-y-6">
+					<h3 className="font-medium text-sm sm:text-base text-gray-600 uppercase tracking-wide">
+						In partnership with
+					</h3>
+					<div className="relative w-48 h-24 sm:w-56 sm:h-28 md:w-64 md:h-32">
+						<Image
+						src="/Unep_logo.png"
+						alt="United Nations Environment Programme logo"
 						fill
 						className="object-contain"
-					/>
+						/>
+					</div>
+					<h3 className="font-medium text-lg sm:text-xl md:text-2xl text-[#044D28]">
+						United Nations Environment Programme
+					</h3>
 				</div>
-				<h3 className="font-semibold text-base sm:text-lg md:text-xl text-[#044D28]">
-					Rural Electrification Agency
-				</h3>
 			</div>
 
-			{/* Led by */}
-			<div className="flex flex-col items-center space-y-4 sm:space-y-6">
-				<h3 className="font-medium text-sm sm:text-lg text-gray-700">Led By</h3>
-				<div className="relative w-44 h-20 sm:w-56 sm:h-28 md:w-64 md:h-32">
-					<Image
-						src="/Unep_logo.png"
-						alt="UNEP logo"
-						fill
-						className="object-contain"
-					/>
-				</div>
-				<h3 className="font-semibold text-base sm:text-lg md:text-xl text-[#044D28]">
-					United Nations Environment Programme
-				</h3>
+			<div className="flex justify-center md:justify-center">
+				<a href="/about"
+					className="group inline-flex items-center gap-2 px-6 py-3 bg-[#044D28] text-white font-medium rounded-lg hover:bg-[#033d20] transition-all duration-300 shadow-md hover:shadow-lg text-sm sm:text-base"
+				>
+					Learn about our partners
+					<svg 
+						className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" 
+						fill="none" 
+						stroke="currentColor" 
+						viewBox="0 0 24 24"
+					>
+						<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+					</svg>
+				</a>
 			</div>
 		</div>
 	</section>
 );
-
 
 export default function Home() {
   return (
