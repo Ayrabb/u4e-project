@@ -38,7 +38,7 @@ export default function ResourcesPage() {
             <h2 className="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
               Brochure: The Offgrid Refrigeration Guidelines Pilot Implementation
             </h2>
-            <p className="text-sm text-gray-500 mb-4">13 Dec 2022</p>
+    
             <p className="text-gray-700 leading-relaxed mb-6">
               The Program is an initiative implemented by the Rural Electrification Agency (REA)
               in partnership with the United Nations Environment Programme (UNEP) aimed at
