@@ -162,7 +162,7 @@ export default function Navbar() {
                                                     <Link
                                                         key={subIdx}
                                                         href={subLink.link}
-                                                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-green-600 transition-colors"
+                                                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-[#044D28] transition-colors"
                                                     >
                                                         {subLink.label}
                                                     </Link>

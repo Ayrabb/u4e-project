@@ -1,4 +1,4 @@
-import { FaLinkedin, FaInstagram, FaSquareFacebook, FaXTwitter } from "react-icons/fa6";
+import { FaLinkedin, FaInstagram, FaSquareFacebook, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
@@ -19,6 +19,14 @@ const news = [
 	{ label: "All news", url: "/news?tab=news" },
 	{ label: "Gallery", url: "/news?tab=gallery" },
 	{ label: "Videos", url: "/news?tab=videos" }
+];
+
+const social_media = [
+	{ name: "LinkedIn", url: "https://www.linkedin.com/company/rural-electrification-agency-of-nigeria/", logo: <FaLinkedin className="w-8 h-auto" size={24} /> },
+	{ name: "Twitter", url: "https://x.com/TheREANigeria", logo: <FaXTwitter className="w-8 h-auto" size={24} /> },
+	{ name: "Instagram", url: "https://www.instagram.com/realREANigeria/", logo: <FaInstagram className="w-8 h-auto" size={24} /> },
+	{ name: "Facebook", url: "https://www.facebook.com/REANigeria", logo: <FaSquareFacebook className="w-8 h-auto" size={24} /> },
+	{ name: "YouTube", url: "https://www.youtube.com/channel/UCCv3yD12TzC952rXppM8KGg/", logo: <FaYoutube className="w-9 h-auto" size={24} /> },
 ];
 
 export default function Footer() {
@@ -45,8 +53,8 @@ export default function Footer() {
 			</div>
 		
 			<div
-				className="flex flex-col w-full lg:w-auto
-				lg:flex-row lg:justify-center gap-4 lg:gap-16 [&>*]:w-full lg:[&>*]:w-auto"
+				className="flex flex-col w-full lg:w-auto flex-1 
+				lg:flex-row lg:justify-between gap-4 lg:gap-16 [&>*]:w-full lg:[&>*]:w-auto"
 			>
 				{/* Relevant Sites */}
 				<div
@@ -107,49 +115,38 @@ export default function Footer() {
 				</div>
 			</div>
 
-        <div className="hidden lg:flex flex-col items-end space-y-4 min-w-[240px]">
-          <div className="text-sm text-end leading-relaxed">
-            <a href="mailto:info@rea.gov.ng" className="hover:underline block">
-              info@rea.gov.ng
-            </a>
-            <a href="tel:+2348036645113" className="hover:underline block">
-              +234 803 664 5113
-            </a>
-            <p>Rural Electrification Agency</p>
-            <p>22 Freetown Street, Wuse II, Abuja</p>
-          </div>
+			<div className="hidden lg:flex flex-col items-end space-y-4 min-w-[240px]">
+				<div className="text-sm text-end leading-relaxed">
+					<a href="mailto:info@rea.gov.ng" className="hover:underline block">
+						info@rea.gov.ng
+					</a>
+					<a href="tel:+2348036645113" className="hover:underline block">
+						+234 803 664 5113
+					</a>
+					<p>Rural Electrification Agency</p>
+					<p>22 Freetown Street, Wuse II, Abuja</p>
+				</div>
 
-          <div className="flex gap-4 justify-end">
-            <a href="#" aria-label="LinkedIn" className="hover:text-gray-300">
-              <FaLinkedin className="w-8 h-auto" size={24} />
-            </a>
-            <a href="#" aria-label="Twitter" className="hover:text-gray-300">
-              <FaXTwitter className="w-8 h-auto" size={24} />
-            </a>
-            <a href="#" aria-label="Instagram" className="hover:text-gray-300">
-              <FaInstagram className="w-8 h-auto" size={24} />
-            </a>
-            <a href="#" aria-label="Facebook" className="hover:text-gray-300">
-              <FaSquareFacebook className="w-8 h-auto" size={24} />
-            </a>
-          </div>
-        </div>
-      </div>
-
+				<div className="flex gap-4 justify-end items-center">
+					{social_media.map((element, idx) => (
+						<a key={idx}
+							href={element.url || "#"} aria-label={element.name} className="hover:text-gray-300">
+							{element.logo}
+						</a>
+					))}
+				</div>
+			</div>
+		</div>
+		
+		{/* On smaller screens */}
 		<div className="block lg:hidden mt-10">
-			<div className="flex gap-6 justify-center">
-				<a href="#" aria-label="LinkedIn" className="hover:text-gray-300">
-					<FaLinkedin className="w-8 h-auto" size={24} />
-				</a>
-				<a href="#" aria-label="Twitter" className="hover:text-gray-300">
-					<FaXTwitter className="w-8 h-auto" size={24} />
-				</a>
-				<a href="#" aria-label="Instagram" className="hover:text-gray-300">
-					<FaInstagram className="w-8 h-auto" size={24} />
-				</a>
-				<a href="#" aria-label="Facebook" className="hover:text-gray-300">
-					<FaSquareFacebook className="w-8 h-auto" size={24} />
-				</a>
+			<div className="flex gap-6 justify-center items-center">
+				{social_media.map((element, idx) => (
+					<a key={idx}
+						href={element.url || "#"} aria-label={element.name} className="hover:text-gray-300">
+						{element.logo}
+					</a>
+				))}
 			</div>
 		</div>
 
