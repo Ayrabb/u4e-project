@@ -20,7 +20,7 @@ export default function ResourcesPage() {
         Downloads
       </a>
       <a href="#" className="hover:text-yellow-500">
-        FAQ's
+         FAQ&apos;s
       </a>
     </div>
   </div>
