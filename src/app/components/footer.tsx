@@ -116,7 +116,7 @@ export default function Footer() {
               +234 803 664 5113
             </a>
             <p>Rural Electrification Agency</p>
-            <p>22 Freetown Crescent, Asokoro, Abuja</p>
+            <p>22 Freetown Street, Wuse II, Abuja</p>
           </div>
 
           <div className="flex gap-4 justify-end">

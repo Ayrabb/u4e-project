@@ -50,7 +50,7 @@ export default function ContactPage() {
               </div>
               <div className="bg-white shadow-md rounded-lg p-6">
                 <h3 className="font-semibold text-gray-800 mb-2">Phone</h3>
-                <a href="tel:+234 8036645113"className="text-gray-600 text-sm">+2348095975771</a>
+                <a href="tel:+234 8036645113"className="text-gray-600 text-sm">+234 8036645113</a>
               </div>
               <div className="bg-white shadow-md rounded-lg p-6 sm:col-span-2">
                 <h3 className="font-semibold text-gray-800 mb-2">Email</h3>
