@@ -3,39 +3,22 @@ import { NewsItem } from "@/app/components/utilities";
 import { Badge } from "@/app/components/utilities";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const newsList: NewsItem[] = [
     {
 		id: 1,
-		title: "Invitation For Prequalification For The Africa Minigrids Program Grant For Pilot Minigrids in Rural Communities And Agricultural Value The U4E initiative in Nigeria The U4E initiative in Nigeria The U4E initiative in Nigeria",
-		description: "The U4E initiative in Nigeria has introduced new policies to improve efficiency in household appliances.",
+		title: "Off-grid Refrigeration Guidelines Pilot Implementation Program Inception Workshop",
+		description: "A visual documentation of the inception workshop for the Off-grid Refrigeration Guidelines Pilot Implementation Program, bringing together key stakeholders to launch this transformative initiative.",
 		date: "2025-09-28",
-		category: "press",
-		url: "/news/nigeria-launches-energy-efficient-appliance-program",
-		image: "/event.jpg",
-	},
-	{
-		id: 4,
-		title: "Stakeholders endorse new efficiency standards",
-		description: "Key stakeholders across Nigeria have voiced support for the adoption of new energy efficiency standards.",
-		date: "2025-08-25",
-		category: "news",
-		url: "/news/stakeholders-endorse-standards",
-        image: "/men-talking.jpg",
-	},
-	{
-		id: 5,
-		title: "UNEP and partners release updated efficiency report",
-		description: "The report outlines pathways for Nigeria to meet its energy savings and sustainability targets.",
-		date: "2025-07-15",
-		category: "news",
-		url: "/news/unep-partners-release-efficiency-report",
-        image: "/event.jpg",
+		category: "gallery",
+		url: "/news/gallery/1",
+		image: "/gallery/workshop/image0.JPG",
 	}
 ];
 
 const GallerySection = () => {
-
+	const router = useRouter()
 	const formatDate = (dateString: string) => {
 		return new Date(dateString).toLocaleDateString('en-GB', {
 			day: 'numeric',
@@ -60,6 +43,7 @@ const GallerySection = () => {
 						<article
 							key={news.id}
 							className="group relative cursor-pointer bg-gray-100 rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
+							onClick={() => router.push(news.url)}
 						>
 							{/* Image */}
 							<div className="relative aspect-[4/3] overflow-hidden">
@@ -72,9 +56,9 @@ const GallerySection = () => {
 								/>
 														
 								{/* Badge */}
-								<div className="absolute top-4 left-4 z-10">
+								{/* <div className="absolute top-4 left-4 z-10">
 									<Badge type={news.category} size="sm" />
-								</div>
+								</div> */}
 							</div>
 
 							{/* Content */}

@@ -1,4 +1,4 @@
-type BadgeType = "news" | "press" | "video" | "external";
+type BadgeType = "news" | "press" | "video" | "gallery";
 type BadgeSize = "sm" | "md" | "lg";
 
 type Badge = {
@@ -14,7 +14,7 @@ export interface NewsItem {
 	date: string;
 	category: BadgeType;
 	image?: string;
-	video?: string;
+	youtube_link?: string;
 	description?: string;
 	source?: string;
 	url?: string;
@@ -39,11 +39,11 @@ export const NewsBadges: Record <BadgeType, Badge> = {
 		textcolour: "text-red-900",
 		ringcolour: "inset-ring-red-900"
 	},
-	external: {
-		label: "EXTERNAL COVERAGE",
-		bgcolour: "bg-gray-100",
-		textcolour: "text-gray-800",
-		ringcolour: "inset-ring-green-900"
+	gallery: {
+		label: "GALLERY",
+		bgcolour: "bg-purple-100",
+		textcolour: "text-purple-800",
+		ringcolour: "inset-ring-purple-900"
 	}
 };
 
