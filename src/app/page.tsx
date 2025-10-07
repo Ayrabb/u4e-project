@@ -239,7 +239,11 @@ export default function Home() {
 			</div>
 		</section>
 
-		<NewsSection />
+		<section>
+			<GlanceSection />
+		</section>
+
+		<Partners />
 
 		{/* Supporting Local Energy Grids Section */}
 		<section className="bg-[#01130A] h-[80vh] py-10 px-8 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
@@ -265,12 +269,7 @@ export default function Home() {
 			</div>
 		</section>
 
-		<section>
-			<GlanceSection />
-		</section>
-
-		{/* Section 2: Partners */}
-		<Partners />
+		<NewsSection />
 
 		<section className="pt-10">
 			<Footer />
