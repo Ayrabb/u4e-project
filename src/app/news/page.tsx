@@ -79,10 +79,10 @@ const Tabs = () => {
 	useEffect(() => {
 		const fetchNews = async () => {
 			const api_url = process.env.NEXT_PUBLIC_API_URL;console.log(api_url);
-			// const req_url = `${api_url}/api/news-items`;
-			const req_url = `https://frilly-minna-favoringly.ngrok-free.dev/api/news-items`;
+			const target = `${api_url}/api/news-items?populate=*`;
+			const reqUrl = `/api/proxy?url=${encodeURIComponent(target)}`;
 			try {
-				const res = await fetch("/api/proxy");
+				const res = await fetch(reqUrl);
 				const data = await res.json();
 				console.log(data);
 				setAllNews(data.data);
@@ -107,7 +107,7 @@ const Tabs = () => {
 		<>
 			<HeroSection active={activeTab} changeTab={handleTabChange} sections={sections}/>
 
-			<div className="pb-6">
+			<div className="pb-6 min-h-screen">
 				{activeTab === "news" && (<NewsSection newsItems={news}/>)}
 
 				{activeTab === "gallery" && (<GallerySection />)}
