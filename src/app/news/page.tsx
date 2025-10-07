@@ -1,11 +1,10 @@
 "use client";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useState } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import NewsSection from "./tabs/News";
 import GallerySection from "./tabs/Gallery";
 import VideoSection from "./tabs/Videos";
-import { NewsItem } from "../components/utilities";
 import { useSearchParams, useRouter } from 'next/navigation'
 
 type Section = {
@@ -50,11 +49,6 @@ const HeroSection = ({ active, changeTab, sections } : { active: string, changeT
 const Tabs = () => {
 	const searchParams = useSearchParams();
 	const router = useRouter();
-	const [allNews, setAllNews] = useState<NewsItem[]>([]);
-	const [news, setNews] = useState<NewsItem[]>([]);
-	const [imageNews, setImageNews] = useState<NewsItem[]>([]);
-	const [videoNews, setVideoNews] = useState<NewsItem[]>([]);
-
 	const sections = [
 		{
 			label: "News",
@@ -76,39 +70,12 @@ const Tabs = () => {
 		router.push(`/news?tab=${tab}`);
 	};
 
-	useEffect(() => {
-		const fetchNews = async () => {
-			const api_url = process.env.NEXT_PUBLIC_API_URL;console.log(api_url);
-			const target = `${api_url}/api/news-items?populate=*`;
-			const reqUrl = `/api/proxy?url=${encodeURIComponent(target)}`;
-			try {
-				const res = await fetch(reqUrl);
-				const data = await res.json();
-				console.log(data);
-				setAllNews(data.data);
-				} catch  {
-					setAllNews([]); // fallback
-				}
-			};
-
-		fetchNews();
-	}, []);
-
-	useEffect(() => {
-		console.log(allNews);
-		if(allNews.length > 0){
-			setNews(allNews.filter(item => item.category === "news" || item.category === "press"));
-			setImageNews(allNews.filter(item => item.category === "gallery"));
-			setVideoNews(allNews.filter(item => item.category === "video"));
-		}
-	}, [allNews]);
-
 	return (
 		<>
 			<HeroSection active={activeTab} changeTab={handleTabChange} sections={sections}/>
 
 			<div className="pb-6 min-h-screen">
-				{activeTab === "news" && (<NewsSection newsItems={news}/>)}
+				{activeTab === "news" && (<NewsSection />)}
 
 				{activeTab === "gallery" && (<GallerySection />)}
 

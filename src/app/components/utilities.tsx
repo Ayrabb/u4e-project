@@ -1,4 +1,4 @@
-type BadgeType = "news" | "press" | "video" | "gallery";
+export type BadgeType = "news" | "press" | "video" | "gallery";
 type BadgeSize = "sm" | "md" | "lg";
 
 type Badge = {
