@@ -1,12 +1,11 @@
 "use client";
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import NewsSection from "./tabs/News";
 import GallerySection from "./tabs/Gallery";
 import VideoSection from "./tabs/Videos";
 import { NewsItem } from "../components/utilities";
-import { useRouter, useSearchParams } from "next/navigation";
 
 type Section = {
   label: string;
@@ -17,19 +16,19 @@ const HeroSection = ({ active, changeTab, sections } : { active: string, changeT
 
 	return (
 		<section 
-			className="lg:min-h-64 min-h-42 mt-[var(--navbar-height)] bg-gradient-to-b from-[#044D28] from-28% via-[#078042] via-86% to-[#099A4F] to-100% flex items-end"
+			className="min-h-42 mt-[var(--navbar-height)] bg-gradient-to-b from-[#044D28] from-28% via-[#078042] via-86% to-[#099A4F] to-100% flex items-end"
 		>
 			<div className="flex flex-col h-full w-full space-y-4">
-				<div className="flex flex-col text-white mx-10 lg:mx-20">
-					<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">News center</h2>
-					<p className="text-gray-300 text-sm md:text-xl text-base leading-relaxed max-w-3xl">
+				<div className="flex flex-col text-white mx-20">
+					<h2 className="text-5xl font-medium">News center</h2>
+					<p className="text-gray-300 text-lg text-base leading-relaxed max-w-3xl">
 						Stay updated with the latest updates, stories and press releases from
 						U4E Nigeria.
 					</p>
 				</div>
 
 				<div className="border-t border-white/40 w-full pt-1">
-					<div className="flex flex-row mx-10 lg:mx-20 text-white space-x-3">
+					<div className="flex flex-row mx-20 text-white space-x-3">
 					{sections.map((section, idx) => (
 						<nav 
 							key={idx}
@@ -47,60 +46,31 @@ const HeroSection = ({ active, changeTab, sections } : { active: string, changeT
 	);
 }
 
-const Tabs = () => {
-	const router = useRouter();
-	const searchParams = useSearchParams();
-	const querytab = searchParams.get("tab") || "news";
+export default function NewsPage() {
+	const [news, setNews] = useState<NewsItem[]>([]);
 	const sections = [
 		{
 			label: "News",
-			tab: 'news'
+			tab: '/news'
 		},
 		{
 			label: "Gallery",
-			tab: 'gallery'
+			tab: '/gallery'
 		},
 		{
 			label: "Videos",
-			tab: 'videos'
+			tab: '/videos'
 		}
 	];
-	const [activeTab, setActiveTab] = useState(querytab || sections[0].tab);
-
-	useEffect(() => {
-		setActiveTab(querytab);
-	}, [querytab]);
-
-	const handleTabChange = (tab: string) => {
-		setActiveTab(tab);
-		router.push(`/news?tab=${tab}`, { scroll: false });
-	};
-
-	return (
-		<>
-			<HeroSection active={activeTab} changeTab={handleTabChange} sections={sections}/>
-
-			<div className="pb-6">
-				{activeTab === "news" && (<NewsSection />)}
-
-				{activeTab === "gallery" && (<GallerySection />)}
-
-				{activeTab === "videos" && (<VideoSection />)}
-			</div>
-		</>
-	);
-};
-
-export default function NewsPage() {
-	const [news, setNews] = useState<NewsItem[]>([]);
+	const [activeTab, setActiveTab] = useState(sections[0].tab);
 
 	useEffect(() => {
 		async function fetchNews() {
-			const res = await fetch("/api/news");
-			if (res.ok) {
-				const data = await res.json();
-				setNews(data);
-			}
+		const res = await fetch("/api/news");
+		if (res.ok) {
+			const data = await res.json();
+			setNews(data);
+		}
 		}
 		fetchNews();
 	}, []);
@@ -112,9 +82,16 @@ export default function NewsPage() {
 		<main className="min-h-screen bg-white font-montserrat">
 			<Navbar />
 
-			<Suspense fallback={<div>Loading...</div>}>
-				<Tabs />
-			</Suspense>
+			{/* Hero Section */}
+			<HeroSection active={activeTab} changeTab={setActiveTab} sections={sections}/>
+
+			<main className="pb-6">
+				{activeTab === "/news" && (<NewsSection />)}
+
+				{activeTab === "/gallery" && (<GallerySection />)}
+
+				{activeTab === "/videos" && (<VideoSection />)}
+			</main>
 
 			<Footer />
 		</main>
