@@ -43,7 +43,9 @@ const GallerySection = () => {
 						<article
 							key={news.id}
 							className="group relative cursor-pointer bg-gray-100 rounded-sm overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300"
-							onClick={() => router.push(news.url)}
+							onClick={() => {
+								if(news?.url)
+									router.push(news.url)}}
 						>
 							{/* Image */}
 							<div className="relative aspect-[4/3] overflow-hidden">

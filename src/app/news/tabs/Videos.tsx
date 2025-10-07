@@ -12,7 +12,7 @@ const newsList: NewsItem[] = [
     category: "press",
     url: "/news/nigeria-launches-energy-efficient-appliance-program",
     image: "/event.jpg",
-    video: "https://www.youtube.com/embed/CpPLRW1hD00",
+    youtube_link: "https://www.youtube.com/embed/CpPLRW1hD00",
   },
   {
     id: 4,
@@ -23,7 +23,7 @@ const newsList: NewsItem[] = [
     category: "news",
     url: "/news/stakeholders-endorse-standards",
     image: "/men-talking.jpg",
-    video: "https://www.youtube.com/embed/CpPLRW1hD00",
+    youtube_link: "https://www.youtube.com/embed/CpPLRW1hD00",
   },
   {
     id: 5,
@@ -34,7 +34,7 @@ const newsList: NewsItem[] = [
     category: "news",
     url: "/news/unep-partners-release-efficiency-report",
     image: "/event.jpg",
-    video: "https://www.youtube.com/embed/CpPLRW1hD00",
+    youtube_link: "https://www.youtube.com/embed/CpPLRW1hD00",
   },
 ];
 
@@ -76,11 +76,11 @@ const VideoSection = () => {
 
               {/* Video Player */}
               <div className="relative aspect-video w-full bg-black rounded-lg overflow-hidden shadow-lg">
-                {video.video &&
-                  (video.video.includes("youtube.com") ||
-                    video.video.includes("youtu.be")) && (
+                {video.youtube_link &&
+                  (video.youtube_link.includes("youtube.com") ||
+                    video.youtube_link.includes("youtu.be")) && (
                     <iframe
-                      src={video.video}
+                      src={video.youtube_link}
                       title={video.title}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen

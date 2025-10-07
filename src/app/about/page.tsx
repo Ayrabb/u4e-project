@@ -31,8 +31,8 @@ const AboutREA = () => (
                 <p className="mb-4">The Mandate of the REA is structured around three dimensions:</p>
                 <ul className="flex flex-wrap gap-x-6 gap-y-3 ml-4">
                     <li className="flex min-w-[300px]">
-                    <span className="text-[#044D28] font-bold mr-2">1.</span>
-                    <span>Promoting Rural Electrification in the country</span>
+                        <span className="text-[#044D28] font-bold mr-2">1.</span>
+                        <span>Promoting Rural Electrification in the country</span>
                     </li>
                     <li className="flex min-w-[300px]">
                     <span className="text-[#044D28] font-bold mr-2">2.</span>

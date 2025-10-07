@@ -16,7 +16,7 @@ const GalleryClient: React.FC<GalleryClientProps> = ({ id }) => {
 	const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
 	useEffect(() => {
-		const imageCount = 170;
+		const imageCount = 30;
 		const imgs = Array.from({ length: imageCount }, (_, i) => `/gallery/workshop/image${i}.JPG`);
 		setImages(imgs);
 	}, [id]);
