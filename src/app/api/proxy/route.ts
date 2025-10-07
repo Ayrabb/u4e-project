@@ -14,11 +14,6 @@ export async function GET(req: NextRequest) {
 			return NextResponse.json({ error: "Missing 'url' query parameter" }, { status: 400 });
 		}
 
-		// Block non-ngrok URLs for safety
-		if (!targetUrl.includes("ngrok-free.dev") && !targetUrl.includes("localhost")) {
-			return NextResponse.json({ error: "Proxy only allows ngrok or localhost URLs" }, { status: 403 });
-		}
-
 		// Forward the request server-side
 		const res = await fetch(targetUrl, {
 			method: "GET",
