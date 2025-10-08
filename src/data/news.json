@@ -1,35 +1,481 @@
-[
-  {
-    "id": 1,
-    "title": "Invitation For Prequalification",
-    "date": "2025-09-25",
-    "image": "/latest.jpeg",
-    "video": "https://www.youtube.com/embed/5AvrfIN1HwE",
-    "content": "Invitation For Prequalification For The Africa Minigrids Program Grant For Pilot Minigrids in Rural Communities And Agricultural Value..."
-  },
-  {
-    "id": 2,
-    "title": "Scaling Clean Energy in Africa",
-    "date": "2025-09-20",
-    "image": "/latest.jpeg",
-    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "content": "Africa is scaling renewable energy minigrids with innovative business models..."
-  },
-  {
-    "id": 3,
-    "title": "Supporting Local Grids",
-    "date": "2025-09-18",
-    "image": "/latest.jpeg",
-    "video": "https://www.youtube.com/embed/5AvrfIN1HwE",
-    "content": "The program supports access to clean energy by promoting commercial investment..."
-  },
-  {
-    "id": 4,
-    "title": "UNEP and Partners Drive Energy Access",
-    "date": "2025-09-15",
-    "image": "/latest.jpeg",
-    "video": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "content": "Partnerships are key to scaling renewable energy across rural Africa..."
+{
+  "data": [
+    {
+      "id": 6,
+      "documentId": "eftmorvcl7az0lag94yk911r",
+      "title": "Off-Grid Refrigeration Will Transform Food Security, Healthcare, Economy - Minister",
+      "slug": "off-grid-refrigeration-will-transform-food-security-healthcare-economy-minister",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Minister of Livestock Development, Idi Maiha, has hailed off-grid refrigeration as a game-changing solution for food security, healthcare, and local economic growth."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Speaking at the inception workshop for the off-grid refrigeration guidelines pilot implementation programme in Abuja on Thursday, Maiha said the initiative would lay the foundation for transforming communities while advancing the country’s energy and climate goals."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "The project, which aims to promote the widespread use of energy-efficient off-grid refrigeration in Nigeria’s rural and underserved areas, is implemented by the Rural Electrification Agency (REA) in partnership with the United Nations Environment Programme (UNEP) and funded by the United Kingdom Government."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "The Minister stressed that refrigeration offers immense opportunities across sectors. According to him, from preserving milk, meat, fruits, and vegetables for farmers, to storing vaccines in rural clinics, to powering small businesses like food vendors and local shops, refrigeration “supports livelihoods and stimulates local economies.”"
+            }
+          ]
+        },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "“A substantial portion of Nigerians still lack reliable electricity supply, but mini-grids are already proving their worth,” he said, commending the Rural Electrification Agency (REA) for expanding decentralised energy systems nationwide. “Every kilowatt hour matters, and efficient appliances, including refrigeration, lower costs for operators while ensuring the long-term sustainability of these systems.”"
+            }
+          ]
+        }
+      ],
+      "date": "2025-10-07T20:05:00.000Z",
+      "category": "news",
+      "url": "https://guardian.ng/features/agro-care/off-grid-refrigeration-will-transform-food-security-healthcare-economy-minister/#:~:text=Life-,Off%2Dgrid%20refrigeration%20will%20transform,security%2C%20healthcare%2C%20economy%20%E2%80%93%20Minister&text=Minister%20of%20Livestock%20Development%2C%20Idi,healthcare%2C%20and%20local%20economic%20growth.",
+      "source": "Guardian Nigeria",
+      "createdAt": "2025-10-07T20:01:35.677Z",
+      "updatedAt": "2025-10-07T20:01:35.677Z",
+      "publishedAt": "2025-10-07T20:01:35.685Z",
+      "youtube_link": null,
+      "image": {
+        "id": 52,
+        "documentId": "kx5b2jrgi3d86g43cqrkuwg9",
+        "name": "_T9A0062.JPG",
+        "alternativeText": null,
+        "caption": null,
+        "width": 5472,
+        "height": 3648,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail__T9A0062.JPG",
+            "hash": "thumbnail_T9_A0062_de8ce1970f",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 8.62,
+            "sizeInBytes": 8617,
+            "url": "/uploads/thumbnail_T9_A0062_de8ce1970f.JPG"
+          },
+          "small": {
+            "name": "small__T9A0062.JPG",
+            "hash": "small_T9_A0062_de8ce1970f",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 500,
+            "height": 333,
+            "size": 27.26,
+            "sizeInBytes": 27261,
+            "url": "/uploads/small_T9_A0062_de8ce1970f.JPG"
+          },
+          "medium": {
+            "name": "medium__T9A0062.JPG",
+            "hash": "medium_T9_A0062_de8ce1970f",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 750,
+            "height": 500,
+            "size": 51.61,
+            "sizeInBytes": 51609,
+            "url": "/uploads/medium_T9_A0062_de8ce1970f.JPG"
+          },
+          "large": {
+            "name": "large__T9A0062.JPG",
+            "hash": "large_T9_A0062_de8ce1970f",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1000,
+            "height": 667,
+            "size": 80.54,
+            "sizeInBytes": 80539,
+            "url": "/uploads/large_T9_A0062_de8ce1970f.JPG"
+          }
+        },
+        "hash": "T9_A0062_de8ce1970f",
+        "ext": ".JPG",
+        "mime": "image/jpeg",
+        "size": 1337.19,
+        "url": "/uploads/T9_A0062_de8ce1970f.JPG",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2025-10-07T18:15:00.053Z",
+        "updatedAt": "2025-10-07T19:59:58.265Z",
+        "publishedAt": "2025-10-07T18:15:00.053Z"
+      }
+    },
+    {
+      "id": 8,
+      "documentId": "j4izjq15bz7idfbjr8w5prlp",
+      "title": "REA, UNEP Initiate Measure To Reduce Postharvest Losses In Rural Areas",
+      "slug": "rea-unep-initiate-measure-to-reduce-postharvest-losses-in-rural-areas",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "The Rural Electrification Agency(REA) in partnership with the United Nations Environment Programme(UNEP) has initiated the Off-grid Refrigeration Guidelines Implementation Programme designed to reduce postharvest losses and enhance food security in rural communities in Nigeria."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Speaking on Thursday in Abuja at the Off-grid Refrigeration Guidelines Pilot Implementation Programme Workshop, the Managing Director/Chief Executive Officer of REA, Abba Aliyu, explained the Programme was aimed at “catalysing the widespread adoption and deployment of energy efficient off-grid refrigeration solutions in rural and underserved areas in Nigeria.”"
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Aliyu pointed out that the initiative seeks to bridge energy access gap by introducing sustainable and scalable refrigeration technologies tailored to the unique socio-economic and environmental contexts of rural communities to enhance food security, healthcare services and economic productivity."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "He noted that the Programme would connect agriculture, livestock development, healthcare services, Small and Medium Enterprises(SMEs) and logistics movement."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "According to him, “This programme will enhance food security, reduce postharvest losses, enhance preservation of agricultural produce, support the delivery of healthcare services especially in the rural areas.”"
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "“It will enhance the storage of vaccines and products of livestock, as well as support socio-economic development in the country, as it will create job opportunities”"
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "He assured that the implementation of the Programme would be religiously adhered to, calling on the key stakeholders to work collaboratively with the Agency to achieve a resounding success."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "In his remarks, Victor Minguez, United Nations Environment Programme(UNEP), expressed excitement over the launch of the programme, adding that it would help to address challenges in rural communities where electricity is unavailable and unstable."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Recall that through initiatives such as the United for Efficiency(U4E) programme, the UNEP has been in the forefront of developing and promoting minimum energy perfomance standards, including for cooling and refrigeration, to help countries reduce greenhouse gas emissions, lower energy costs and improve access to sustainable technologies."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "At the heart of the Offgrid Refrigeration Guidelines Pilot Implementation Programme are the U4E Model Quality and Performance Guidelines for Off-grid Refrigerating Appliances."
+            }
+          ]
+        }
+      ],
+      "date": "2025-09-26T09:15:00.000Z",
+      "category": "news",
+      "url": "https://share.google/tsh9mJkwUM872ua8B",
+      "source": "Independent Nigeria",
+      "createdAt": "2025-10-07T20:05:51.673Z",
+      "updatedAt": "2025-10-07T20:05:51.673Z",
+      "publishedAt": "2025-10-07T20:05:51.680Z",
+      "youtube_link": null,
+      "image": {
+        "id": 40,
+        "documentId": "vedvyaib559jpuvr1xdm8fzy",
+        "name": "_T9A0044.JPG",
+        "alternativeText": null,
+        "caption": null,
+        "width": 5472,
+        "height": 3648,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail__T9A0044.JPG",
+            "hash": "thumbnail_T9_A0044_41899d883a",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 8.71,
+            "sizeInBytes": 8706,
+            "url": "/uploads/thumbnail_T9_A0044_41899d883a.JPG"
+          },
+          "small": {
+            "name": "small__T9A0044.JPG",
+            "hash": "small_T9_A0044_41899d883a",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 500,
+            "height": 333,
+            "size": 28.46,
+            "sizeInBytes": 28463,
+            "url": "/uploads/small_T9_A0044_41899d883a.JPG"
+          },
+          "medium": {
+            "name": "medium__T9A0044.JPG",
+            "hash": "medium_T9_A0044_41899d883a",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 750,
+            "height": 500,
+            "size": 54.86,
+            "sizeInBytes": 54856,
+            "url": "/uploads/medium_T9_A0044_41899d883a.JPG"
+          },
+          "large": {
+            "name": "large__T9A0044.JPG",
+            "hash": "large_T9_A0044_41899d883a",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1000,
+            "height": 667,
+            "size": 85.84,
+            "sizeInBytes": 85841,
+            "url": "/uploads/large_T9_A0044_41899d883a.JPG"
+          }
+        },
+        "hash": "T9_A0044_41899d883a",
+        "ext": ".JPG",
+        "mime": "image/jpeg",
+        "size": 1617.87,
+        "url": "/uploads/T9_A0044_41899d883a.JPG",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2025-10-07T18:14:49.926Z",
+        "updatedAt": "2025-10-07T18:14:49.926Z",
+        "publishedAt": "2025-10-07T18:14:49.926Z"
+      }
+    },
+    {
+      "id": 10,
+      "documentId": "mu0bt4bucpk3lilamdvcclh2",
+      "title": "Off-Grid Refrigeration: REA, UNEP Flag-Off Initiative To Bridge Energy Access Gaps",
+      "slug": "off-grid-refrigeration-rea-unep-flag-off-initiative-to-bridge-energy-access-gaps",
+      "description": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "The Rural Electrification Agency (REA), in partnership with the United Nations Environment Programme (UNEP), has flagged off the Off-grid Refrigeration Guidelines Implementation Programme to bridge energy access gaps in rural communities."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Speaking during the inception workshop in Abuja, the REA managing director, Abba Aliyu explained that the project aims to catalyse the widespread adoption and deployment of energy-efficient, climate-friendly off-grid refrigeration solutions in rural and underserved areas of Nigeria to enhance food security, healthcare services and economic productivity while reducing greenhouse gas emissions."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "He stated that the initiative is designed to promote the adoption of new off-grid refrigerating appliances with recommended parameters for quality assurance, energy efficiency and the use of refrigerants and foam-blowing agents with lower global warming potential than typical legacy refrigerants. The approach aligns with the United for Efficiency (U4E) Model Quality and Performance Guidelines for Off-Grid Refrigerating Appliances."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Aliyu stressed that the programme would help to overcome barriers such as high upfront costs, limited technical knowledge and weak policy frameworks while supporting energy-efficient technologies that can be tailored to the realities of rural Nigeria."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "According to him, the programme is structured to connect agriculture, livestock development, healthcare services, small and medium enterprises and logistics operations. He explained that refrigeration remains essential for reducing post-harvest losses, ensuring reliable vaccine storage, preserving dairy products and other livestock output, while also enabling small businesses in rural areas to grow. Aliyu noted that beyond the technical aspect, the initiative would also support job creation and broader socio-economic development."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Speaking on behalf of UNEP, Victor Minguez applauded the Nigerian government for integrating sustainable cooling solutions into its rural electrification strategy. He highlighted that refrigeration is among the highest energy-consuming services for households and businesses, stressing that ensuring efficiency is central to balancing expanded access with environmental sustainability. He added that the initiative would serve as a response to challenges faced in communities with little or no access to stable electricity."
+            }
+          ]
+        },
+        { "type": "paragraph", "children": [{ "type": "text", "text": "" }] },
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "text": "Minguez observed that Nigeria’s leadership in piloting off-grid refrigeration could serve as a model for other developing countries facing similar challenges of energy access and food security."
+            }
+          ]
+        }
+      ],
+      "date": "2025-09-30T08:00:00.000Z",
+      "category": "news",
+      "url": "https://sciencenigeria.com/off-grid-refrigeration-rea-unep-flag-off-initiative-to-bridge-energy-access-gaps/",
+      "source": "Science Nigeria",
+      "createdAt": "2025-10-07T20:18:05.410Z",
+      "updatedAt": "2025-10-07T20:18:05.410Z",
+      "publishedAt": "2025-10-07T20:18:05.416Z",
+      "youtube_link": null,
+      "image": {
+        "id": 62,
+        "documentId": "cd974f7sb5xu7afhrihvvz8p",
+        "name": "_T9A0077.JPG",
+        "alternativeText": null,
+        "caption": null,
+        "width": 5472,
+        "height": 3648,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail__T9A0077.JPG",
+            "hash": "thumbnail_T9_A0077_0e77ae7888",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 7.04,
+            "sizeInBytes": 7044,
+            "url": "/uploads/thumbnail_T9_A0077_0e77ae7888.JPG"
+          },
+          "medium": {
+            "name": "medium__T9A0077.JPG",
+            "hash": "medium_T9_A0077_0e77ae7888",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 750,
+            "height": 500,
+            "size": 41.97,
+            "sizeInBytes": 41966,
+            "url": "/uploads/medium_T9_A0077_0e77ae7888.JPG"
+          },
+          "large": {
+            "name": "large__T9A0077.JPG",
+            "hash": "large_T9_A0077_0e77ae7888",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1000,
+            "height": 667,
+            "size": 65.07,
+            "sizeInBytes": 65072,
+            "url": "/uploads/large_T9_A0077_0e77ae7888.JPG"
+          },
+          "small": {
+            "name": "small__T9A0077.JPG",
+            "hash": "small_T9_A0077_0e77ae7888",
+            "ext": ".JPG",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 500,
+            "height": 333,
+            "size": 21.99,
+            "sizeInBytes": 21986,
+            "url": "/uploads/small_T9_A0077_0e77ae7888.JPG"
+          }
+        },
+        "hash": "T9_A0077_0e77ae7888",
+        "ext": ".JPG",
+        "mime": "image/jpeg",
+        "size": 1178.31,
+        "url": "/uploads/T9_A0077_0e77ae7888.JPG",
+        "previewUrl": null,
+        "provider": "local",
+        "provider_metadata": null,
+        "createdAt": "2025-10-07T18:15:09.070Z",
+        "updatedAt": "2025-10-07T18:15:09.070Z",
+        "publishedAt": "2025-10-07T18:15:09.070Z"
+      }
+    }
+  ],
+  "meta": {
+    "pagination": { "page": 1, "pageSize": 25, "pageCount": 1, "total": 3 }
   }
-  
-]
+}

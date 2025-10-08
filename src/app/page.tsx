@@ -70,7 +70,23 @@ const NewsSection = () => {
 			}
 		};
 
-		fetchNews();
+		const fetchNewsFromLocal = async () => {
+			setLoading(true);
+			try {
+				const local_json = "/api/news";
+				const res = await fetch(local_json);
+				const data = await res.json();
+				const all_news: NewsItem[] = data.data;
+				setNews(all_news.filter((item: NewsItem) => item.category === "news" || item.category === "press"));
+			}
+			catch {
+				setNews([]); // fallback
+				console.log("An error occurred while fetching news items.")
+			}
+			finally { setLoading(false)}
+		};
+
+		fetchNewsFromLocal();
 	}, []);
 	
 	const sortedNews = [...news].sort(
@@ -220,19 +236,19 @@ const Partners = () => (
 );
 
 const VideoSection = () => (
-	<section className="bg-[#01130A] h-[80vh] py-10 px-8 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
+	<section className="bg-[#01130A] min-h-[80vh] py-10 px-8 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
 		<div className="text-left basis-2/5">
-			<h2 className="text-4xl lg:text-4xl font-medium mb-6 text-[#BFAB25]">
+			<h2 className="text-2xl md:text-4xl font-medium mb-6 text-[#BFAB25]">
 				Advancing Clean Energy Through Off-grid Refrigeration
 			</h2>
-			<p className="text-base lg:text-lg leading-relaxed text-white">
+			<p className="text-md lg:text-lg leading-relaxed text-white">
 				The Off-grid Refrigeration Guidelines Pilot Implementation Programme promotes energy-efficient, affordable, and climate-friendly cooling solutions that strengthen food security, healthcare, and rural livelihoods across Nigeria.
 			</p>
 		</div>
 
 		<div className="w-full aspect-video basis-3/5">
 			<iframe
-				className="w-full h-full rounded-lg shadow-lg"
+				className="w-full h-full rounded-sm shadow-lg"
 				src="https://www.youtube.com/embed/CpPLRW1hD00"
 				title="Africa Minigrids Program - Clean Energy Access"
 				allowFullScreen
