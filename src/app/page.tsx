@@ -217,6 +217,28 @@ const Partners = () => (
 	</section>
 );
 
+const VideoSection = () => (
+	<section className="bg-[#01130A] h-[80vh] py-10 px-8 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
+		<div className="text-left basis-2/5">
+			<h2 className="text-4xl lg:text-4xl font-medium mb-6 text-[#BFAB25]">
+				Advancing Clean Energy Through Off-grid Refrigeration
+			</h2>
+			<p className="text-base lg:text-lg leading-relaxed text-white">
+				The Off-grid Refrigeration Guidelines Pilot Implementation Programme promotes energy-efficient, affordable, and climate-friendly cooling solutions that strengthen food security, healthcare, and rural livelihoods across Nigeria.
+			</p>
+		</div>
+
+		<div className="w-full aspect-video basis-3/5">
+			<iframe
+				className="w-full h-full rounded-lg shadow-lg"
+				src="https://www.youtube.com/embed/CpPLRW1hD00"
+				title="Africa Minigrids Program - Clean Energy Access"
+				allowFullScreen
+			/>
+		</div>
+	</section>
+);
+
 export default function Home() {
   return (
 	<main className="min-h-screen font-montserrat bg-white">
@@ -245,29 +267,7 @@ export default function Home() {
 
 		<Partners />
 
-		{/* Supporting Local Energy Grids Section */}
-		<section className="bg-[#01130A] h-[80vh] py-10 px-8 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
-			<div className="text-left basis-2/5">
-				<h2 className="text-4xl lg:text-4xl font-medium mb-6 text-[#BFAB25]">
-					Supporting Local Energy Grids
-				</h2>
-				<p className="text-base lg:text-lg leading-relaxed text-white">
-					The Africa Minigrids Program is supporting access to clean energy by
-					increasing the financial viability, and promoting scaled-up
-					commercial investment in renewable energy minigrids in Africa, with
-					a focus on cost-reduction levers and innovative business models.
-				</p>
-			</div>
-
-			<div className="w-full aspect-video basis-3/5">
-				<iframe
-					className="w-full h-full rounded-lg shadow-lg"
-					src="https://www.youtube.com/embed/5AvrfIN1HwE"
-					title="Africa Minigrids Program - Clean Energy Access"
-					allowFullScreen
-				/>
-			</div>
-		</section>
+		<VideoSection />
 
 		<NewsSection />
 
