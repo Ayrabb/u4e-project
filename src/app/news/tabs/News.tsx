@@ -35,6 +35,7 @@ interface DescriptionChild {
 
 const NewsSection = () => {
 	const [news, setNews] = useState<NewsItem[]>([]);
+	const [loading, setLoading] = useState(true);
 
     const formatDate = (dateString: string) => {
       return new Date(dateString).toLocaleDateString("en-GB", {
@@ -46,7 +47,8 @@ const NewsSection = () => {
 
 	useEffect(() => {
 		const fetchNews = async () => {
-			const api_url = process.env.NEXT_PUBLIC_API_URL;console.log(api_url);
+			setLoading(true);
+			const api_url = process.env.NEXT_PUBLIC_API_URL;
 			const target = `${api_url}/api/news-items?populate=*`;
 			const reqUrl = `/api/proxy?url=${encodeURIComponent(target)}`;
 			try {
@@ -56,9 +58,12 @@ const NewsSection = () => {
 				const all_news: NewsItem[] = data.data;
 				setNews(all_news.filter((item: NewsItem) => item.category === "news" || item.category === "press"));
 			} catch  {
-					setNews([]); // fallback
-				}
-			};
+				setNews([]); // fallback
+				console.log("An error occurred while fetching news items.")
+			} finally {
+				setLoading(false);
+			}
+		};
 
 		fetchNews();
 	}, []);
@@ -71,6 +76,8 @@ const NewsSection = () => {
 	const sortedNews = [...news].sort(
 		(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 	);
+
+	if(loading) return (<></>)
 
 	return (
 		<section className="space-y-16">
