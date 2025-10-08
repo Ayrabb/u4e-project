@@ -4,150 +4,123 @@ import GlanceSection from "./components/GlanceSection";
 import Footer from "./components/footer";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Navbar from "./components/navbar";
+import { Badge, BadgeType } from "./components/utilities";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
-type NewsItem = {
-  id: string;               
-  title: string;               
-  summary: string;            
-  date: string;                
-  type: "news" | "press" | "video" | "external"; 
-  source?: string;             
-  url: string;                
-  image?: string;                
-};
+interface NewsItem {
+  id: number;
+  title: string;
+  date: string; // ISO string
+  category: BadgeType;
+  image?: {
+	url: string; // main image URL
+	formats?: {
+	  thumbnail?: string;
+	  small?: string;
+	  medium?: string;
+	  large?: string;
+	};
+  };
+  youtube_link?: string | null;
+  description?: DescriptionBlock[]; // array of rich text blocks
+  source?: string;
+  url?: string;
+}
 
+interface DescriptionBlock {
+  type: string; // e.g., "paragraph"
+  children: DescriptionChild[];
+}
 
-const newsList: NewsItem[] = [
-	{
-		id: "1",
-		title: "Invitation For Prequalification For The Africa Minigrids Program Grant For Pilot Minigrids in Rural Communities And Agricultural Value The U4E initiative in Nigeria The U4E initiative in Nigeria The U4E initiative in Nigeria",
-		summary: "The U4E initiative in Nigeria has introduced new policies to improve efficiency in household appliances.",
-		date: "2025-09-28",
-		type: "press",
-		url: "/news/nigeria-launches-energy-efficient-appliance-program",
-		image: "/event.jpg"
-	},
-	{
-		id: "2",
-		title: "Energy efficiency drives sustainable growth in Nigerian cities",
-		summary: "Local governments adopt measures to reduce energy waste and improve sustainability.",
-		date: "2025-09-20",
-		type: "news",
-		url: "/news/energy-efficiency-drives-growth"
-	},
-	{
-		id: "3",
-		title: "The Guardian reports on Nigeria's shift to efficient cooling",
-		summary: "International media highlights Nigeria’s progress in adopting energy-efficient air conditioners.",
-		date: "2025-09-12",
-		type: "external",
-		source: "The Guardian",
-		url: "https://www.theguardian.com/environment/nigeria-cooling-efficiency"
-	},
-	{
-		id: "4",
-		title: "Stakeholders endorse new efficiency standards",
-		summary: "Key stakeholders across Nigeria have voiced support for the adoption of new energy efficiency standards.",
-		date: "2025-08-25",
-		type: "press",
-		url: "/news/stakeholders-endorse-standards"
-	},
-	{
-		id: "5",
-		title: "UNEP and partners release updated efficiency report",
-		summary: "The report outlines pathways for Nigeria to meet its energy savings and sustainability targets.",
-		date: "2025-07-15",
-		type: "news",
-		url: "/news/unep-partners-release-efficiency-report"
-	}
-];
+interface DescriptionChild {
+  type: string; // usually "text"
+  text: string;
+}
 
 const NewsSection = () => {
-	const featured: NewsItem = newsList[0];
+	const [news, setNews] = useState<NewsItem[]>([]);
+	const formatDate = (dateString: string) => {
+		return new Date(dateString).toLocaleDateString("en-GB", {
+			day: "numeric",
+			month: "short",
+			year: "numeric"
+		});
+	};
+
+	useEffect(() => {
+		const fetchNews = async () => {
+			const api_url = process.env.NEXT_PUBLIC_API_URL;
+			const target = `${api_url}/api/news-items?populate=*`;
+			const reqUrl = `/api/proxy?url=${encodeURIComponent(target)}`;
+			try {
+				const res = await fetch(reqUrl);
+				const data = await res.json();
+				console.log(data);
+				const all_news: NewsItem[] = data.data;
+				setNews(all_news.filter((item: NewsItem) => item.category === "news" || item.category === "press"));
+			} catch  {
+				setNews([]); // fallback
+				console.log("An error occurred while fetching news items.")
+			}
+		};
+
+		fetchNews();
+	}, []);
+	
+	const sortedNews = [...news].sort(
+		(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+	);
 
 	return (
-		<section className="bg-white py-12 px-4 md:px-12 space-y-3">
+		<section className="bg-white py-12 px-4 md:px-12 space-y-3 max-w-6xl mx-auto mt-10">
 			<div className="flex justify-between items-center">
 				<h2 className="text-2xl font-medium text-[#b59d2a]">Latest updates</h2>
 			</div>
 
-			<div className="grid grid-cols-2 gap-2">
-				{/* Featured big card */}
-				<div className="w-full group cursor-pointer">
-					<div className="relative w-full h-full shadow">
-						<Image
-							src={featured.image || ""}
-							alt="Main update"
-							className="object-cover w-full h-full"
-							width={350}
-							height={350}
-						/>
+			<div className="space-y-8">
+				{sortedNews.map((news) => (
+				<article
+					key={news.id}
+					className="group flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-8 pb-5 border-b border-gray-200 last:border-b-0"
+				>
+					<div className="flex-1 min-w-0">
+						<time className="text-gray-500 text-sm sm:text-md font-medium block">
+							{formatDate(news.date)}
+						</time>
 
-						<div className="absolute inset-0 bg-black/40"></div>
-
-						<div className="absolute bottom-0 left-4 right-4 flex flex-col py-5 justify-between text-white h-full">
-							<div className="flex flex-row justify-between">
-								<time className="font-medium text-sm">
-									{new Date(featured.date).toLocaleDateString('en-UK', {
-										year: 'numeric',
-										month: 'short',
-										day: 'numeric'
-									})}
-								</time>
-								<div>
-									<HiOutlineArrowUpRight className="w-4 h-auto transform transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
-								</div>
-							</div>
-							<h3 className="text-lg font-medium line-clamp-2">
-								{featured.title}
+						<Link href={news.url || "#"} target="_blank" rel="noopener noreferrer">
+							<h3 className="text-lg sm:text-xl cursor-pointer mb-2 font-medium text-gray-900 group-hover:text-[#044D28] transition-colors leading-snug">
+							{news.title}
 							</h3>
+						</Link>
+
+					{news.description && (
+						<p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-3 line-clamp-3">
+							{news.description?.[0]?.children?.[0]?.text || ""}
+						</p>
+					)}
+
+						<div className="flex flex-wrap items-center gap-2 sm:gap-3">
+							<Badge type={news.category} size="sm" />
+							{news.source && (
+							<>
+								<span className="text-gray-700 hidden sm:inline">•</span>
+								<span className="text-sm font-medium text-gray-700">
+									{news.source}
+								</span>
+							</>
+							)}
 						</div>
 					</div>
-				</div>
-
-				{/* Smaller 2x2 grid */}
-				<div className="w-full grid grid-cols-2 gap-2">
-					{newsList.slice(1,5).map((element, idx) => (
-					<div
-						key={idx}
-						className="relative w-full h-full shadow group cursor-pointer"
-					>
-						<Image
-							src={featured.image || ""}
-							alt="Main update"
-							className="object-cover w-full h-full"
-							width={350}
-							height={350}
-						/>
-
-						<div className="absolute inset-0 bg-black/40"></div>
-
-						<div className="absolute bottom-0 left-3 right-3 flex flex-col py-2 justify-between text-white h-full">
-							<div className="flex flex-row justify-between">
-								<time className="font-medium text-xs">
-									{new Date(element.date).toLocaleDateString('en-UK', {
-										year: 'numeric',
-										month: 'short',
-										day: 'numeric'
-									})}
-								</time>
-								<div>
-									<HiOutlineArrowUpRight className="w-3 h-auto transform transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
-								</div>
-							</div>
-							<h3 className="text-sm font-medium line-clamp-2">
-								{element.title}
-							</h3>
-						</div>
-					</div>
-					))}
-				</div>
+				</article>
+				))}
 			</div>
 
 			<div className="w-full text-end">
 				<div className="inline-flex flex-col items-end">
 					<a
-						href="/news"
+						href="/news?tab=news"
 						className="text-md font-medium text-gray-600 hover:text-[#044D28] transition flex flex-row justify-end items-center"
 					>
 						See all news <HiOutlineArrowUpRight className="w-4 h-auto ms-2 text-[#044D28]"/>
