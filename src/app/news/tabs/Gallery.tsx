@@ -56,6 +56,7 @@ const Gallery = () => {
                     src={image.url}
                     alt={image.name}
                     fill
+					unoptimized
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
                   />
@@ -90,7 +91,7 @@ const Gallery = () => {
           </button>
 
           <div className="relative max-w-7xl w-full h-[90vh]" onClick={(e) => e.stopPropagation()}>
-            <Image src={selectedImage.url} alt={selectedImage.name} fill className="object-contain" sizes="100vw" />
+            <Image src={selectedImage.url} alt={selectedImage.name} fill className="object-contain" sizes="100vw" unoptimized />
           </div>
 
           <button
