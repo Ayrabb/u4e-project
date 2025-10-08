@@ -1,5 +1,5 @@
 "use client";
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
 import NewsSection from "./tabs/News";
@@ -69,6 +69,13 @@ const Tabs = () => {
 		setActiveTab(tab);
 		router.push(`/news?tab=${tab}`);
 	};
+
+	useEffect(() => {
+		const validTabs = sections.map(section => section.tab);
+		if (!validTabs.includes(activeTab)) {
+			handleTabChange(sections[0].tab);
+		}
+	}, [activeTab]);
 
 	return (
 		<>
