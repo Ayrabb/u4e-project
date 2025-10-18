@@ -36,6 +36,18 @@ const newsList: NewsItem[] = [
     image: "/event.jpg",
     youtube_link: "https://www.youtube.com/embed/CpPLRW1hD00",
   },
+  {
+    id: 6,
+  title: "Benefits Of The REA UNEP Off-Grid Refrigeration Pilot Program",
+  description:
+    "Project manager discusses the advantages and expected impacts of the REA-UNEP off-grid refrigeration pilot program, in advancing energy access, food security, and sustainable cooling solutions in underserved communities.",
+  date: "2025-10-15",  
+  category: "news",
+  url: "https://www.youtube.com/watch?v=9gvETMDFVOQ",
+  image: "/offgrid_refrigeration.jpg",
+  youtube_link: "https://www.youtube.com/embed/9gvETMDFVOQ"
+},
+
 ];
 
 const VideoSection = () => {

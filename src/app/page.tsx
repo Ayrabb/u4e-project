@@ -282,13 +282,9 @@ export default function Home() {
 		<section>
 			<GlanceSection />
 		</section>
-
-		<Partners />
-
 		<VideoSection />
-
 		<NewsSection />
-
+		<Partners />
 		<section className="pt-10">
 			<Footer />
 		</section>
