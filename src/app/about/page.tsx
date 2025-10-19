@@ -48,7 +48,16 @@ const AboutREA = () => (
                 </ul>
                 </div>
             </div>
+            <div className="flex justify-center">
+                <Image 
+                    src="/shop.jpg" 
+                    alt="Rural electrification project shop" 
+                    width={500} 
+                    height={400} 
+                    className="rounded-xs w-full max-w-md h-auto object-cover"
+                />
             </div>
+          </div>
 
 
             <div className="space-y-4 text-gray-700 text-md leading-relaxed mb-6">
@@ -99,7 +108,12 @@ const AboutUNEP = () => (
                     The U4E programme in Nigeria will contribute to the following UN Sustainable Development Goals:
                 </p>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
-                    <div className="flex flex-col items-center">
+                    <a
+                        href="https://www.unep.org/topics/sustainable-development-goals/why-do-sustainable-development-goals-matter/goal-7"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
+                    >
                         <Image 
                             src="/sdg-logos/7.png" 
                             alt="SDG 7 - Affordable and Clean Energy"
@@ -108,8 +122,13 @@ const AboutUNEP = () => (
                             height={150}
                         />
                         <p className="text-center text-xs sm:text-sm mt-2 sm:mt-3 text-gray-700">Affordable and Clean Energy</p>
-                    </div>
-                    <div className="flex flex-col items-center">
+                    </a>
+                    <a
+                        href="https://www.unep.org/topics/sustainable-development-goals/why-do-sustainable-development-goals-matter/goal-11"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
+                    >
                         <Image 
                             src="/sdg-logos/11.png" 
                             alt="SDG 11 - Sustainable Cities and Communities"
@@ -118,8 +137,13 @@ const AboutUNEP = () => (
                             height={150}
                         />
                         <p className="text-center text-xs sm:text-sm mt-2 sm:mt-3 text-gray-700">Sustainable Cities and Communities</p>
-                    </div>
-                    <div className="flex flex-col items-center">
+                    </a>
+                    <a
+                        href="https://www.unep.org/topics/sustainable-development-goals/why-do-sustainable-development-goals-matter/goal-12"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
+                    >
                         <Image 
                             src="/sdg-logos/12.png" 
                             alt="SDG 12 - Responsible Consumption and Production"
@@ -128,8 +152,13 @@ const AboutUNEP = () => (
                             height={150}
                         />
                         <p className="text-center text-xs sm:text-sm mt-2 sm:mt-3 text-gray-700">Responsible Consumption and Production</p>
-                    </div>
-                    <div className="flex flex-col items-center">
+                    </a>
+                    <a
+                        href="https://www.unep.org/topics/sustainable-development-goals/why-do-sustainable-development-goals-matter/goal-13"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
+                    >
                         <Image 
                             src="/sdg-logos/13.png" 
                             alt="SDG 13 - Climate Action"
@@ -138,7 +167,7 @@ const AboutUNEP = () => (
                             height={150}
                         />
                         <p className="text-center text-xs sm:text-sm mt-2 sm:mt-3 text-gray-700">Climate Action</p>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -187,7 +216,7 @@ const ProgramComponents = () => {
     ];
 
     return (
-        <div className="pb-10">
+        <div className="">
             {/* Program components */}
             <h4 className="text-lg sm:text-xl md:text-2xl text-[#044D28] font-normal mb-6 md:mb-8 mt-8 md:mt-12">
                 Program components
