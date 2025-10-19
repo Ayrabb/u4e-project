@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import GlanceSection from "./components/GlanceSection";
 import Footer from "./components/footer";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Navbar from "./components/navbar";
@@ -178,7 +177,7 @@ const NewsSection = () => {
 }
 
 const Partners = () => (
-	<section className="bg-white pb-12 sm:pb-16 md:pb-20 px-6 sm:px-8 lg:px-20 relative">
+	<section className="bg-gray-50 py-12 sm:py-16 md:py-20 px-6 sm:px-8 lg:px-20 border-t border-gray-200 relative">
 		<div className="container mx-auto">
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 text-center mb-12 md:mb-16">
 				<div className="flex flex-col items-center space-y-4 sm:space-y-6">
@@ -204,7 +203,7 @@ const Partners = () => (
 					</h3>
 					<div className="relative w-48 h-24 sm:w-56 sm:h-28 md:w-64 md:h-32">
 						<Image
-						src="/Unep_logo.png"
+						src="/Unep_logo2.png"
 						alt="United Nations Environment Programme logo"
 						fill
 						className="object-contain"
@@ -257,27 +256,92 @@ const VideoSection = () => (
 	</section>
 );
 
+const GlanceSection = () => (
+	<section className="bg-white py-16 px-6 md:px-20 max-w-7xl mx-auto">
+		{/* Header */}
+		<h2 className="text-3xl md:text-4xl font-medium text-[#BFAB25] text-center md:text-left mb-10 leading-snug">
+			Empowering Rural Communities with Sustainable Cooling Solutions
+		</h2>
+
+		{/* Content with Wrapped Image */}
+		<div className="relative text-gray-700 text-base md:text-lg leading-relaxed">
+			{/* Floating Image (on the right for desktop) */}
+			<div className="float-none md:float-right md:ml-8 mb-6 md:mb-4 w-full md:w-[45%] relative h-64 sm:h-80 md:h-[300px] rounded-xs overflow-hidden shadow-lg">
+				<Image
+					src="/home.jpg"
+					alt="U4E Nigeria event"
+					fill
+					className="object-cover object-center"
+					priority
+				/>
+			</div>
+
+			{/* Paragraphs wrapping around the image */}
+			<p className="mb-4">
+				The <span className="font-semibold">United for Efficiency (U4E)</span> initiative, led by the{" "}
+				<span className="font-semibold">United Nations Environment Programme (UNEP)</span>, partners with the{" "}
+				<span className="font-semibold">Rural Electrification Agency (REA)</span> to accelerate the adoption
+				of energy-efficient and climate-friendly technologies in Nigeria.
+			</p>
+
+			<p className="mb-4">
+				Through the{" "}
+				<span className="font-semibold">Off-grid Refrigeration Guidelines Pilot Implementation Programme</span>,
+				this collaboration introduces sustainable cooling systems to rural and underserved communities—improving
+				food security, healthcare, and local economic development.
+			</p>
+
+			<p className="mb-4">
+				The programme also strengthens Nigeria's clean energy transition and supports key{" "}
+				<span className="font-semibold">Sustainable Development Goals</span>, including{" "}
+				<span className="italic">Affordable and Clean Energy</span>,{" "}
+				<span className="italic">Responsible Consumption and Production</span>, and{" "}
+				<span className="italic">Climate Action</span>.
+			</p>
+
+			<p>
+				Together, UNEP and REA are demonstrating how innovation, forward-thinking policy, and community engagement
+				can empower rural areas with modern, sustainable energy solutions that improve lives and protect the planet.
+			</p>
+		</div>
+	</section>
+);
+
+const HeroSection = () => (
+	<section className="relative w-full h-[60vh] md:h-[70vh] lg:h-[95vh] flex items-center justify-start px-5 sm:px-8 lg:px-12 bg-black text-white overflow-hidden">
+		<Image
+			src="/hero-image2.jpg"
+			alt="Off-grid refrigeration programme"
+			fill
+			priority
+			quality={85}
+			className="object-cover object-center"
+			sizes="100vw"
+		/>
+
+		{/* Overlay */}
+		<div className="absolute inset-0 bg-black/26 z-[1]"></div>
+
+		<div className="py-8 md:py-12 relative z-10 items-end h-full">
+			<div className="flex flex-col h-full w-full justify-end">
+				<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4 md:mb-6">
+					The Off-grid Refrigeration Guidelines Pilot Implementation Programme
+				</h1>
+				<p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed">
+					Catalyzing the widespread adoption and deployment of energy-efficient off-grid refrigeration solutions.
+				</p>
+			</div>
+		</div>
+	</section>
+);
+
 export default function Home() {
   return (
 	<main className="min-h-screen font-montserrat bg-white">
 		<Navbar />
 
 		{/* Hero Section */}
-		<section
-			className="relative w-full h-[60vh] md:h-[70vh] lg:h-[95vh] flex items-center justify-start px-5 sm:px-8 lg:px-12 text-white
-						bg-[url('/mathias-owa-martins-WeEu-3KVhkE-unsplash.jpg')] bg-cover bg-center"
-			>
-			<div className="absolute inset-0 bg-black/50"></div>
-
-			<div className="max-w-4xl py-8 md:py-12 relative z-10">
-				<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4 md:mb-6">
-					The Off-grid Refrigeration Guidelines Pilot Implementation Programme
-				</h1>
-				<p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed max-w-3xl">
-					Catalyzing the widespread adoption and deployment of energy-efficient off-grid refrigeration solutions.
-				</p>
-			</div>
-		</section>
+		<HeroSection />
 
 		<section>
 			<GlanceSection />
@@ -285,9 +349,8 @@ export default function Home() {
 		<VideoSection />
 		<NewsSection />
 		<Partners />
-		<section className="pt-10">
-			<Footer />
-		</section>
+		
+		<Footer />
     </main>
   );
 }
