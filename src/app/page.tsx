@@ -292,7 +292,7 @@ const GlanceSection = () => (
 			</p>
 
 			<p className="mb-4">
-				The programme also strengthens Nigeria's clean energy transition and supports key{" "}
+				The programme also strengthens Nigeria&lsquo;s clean energy transition and supports key{" "}
 				<span className="font-semibold">Sustainable Development Goals</span>, including{" "}
 				<span className="italic">Affordable and Clean Energy</span>,{" "}
 				<span className="italic">Responsible Consumption and Production</span>, and{" "}
