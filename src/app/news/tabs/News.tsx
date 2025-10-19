@@ -4,33 +4,23 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 interface NewsItem {
-  id: number;
-  title: string;
-  date: string; // ISO string
-  category: BadgeType;
-  image?: {
-    url: string; // main image URL
-    formats?: {
-      thumbnail?: string;
-      small?: string;
-      medium?: string;
-      large?: string;
-    };
-  };
-  youtube_link?: string | null;
-  description?: DescriptionBlock[]; // array of rich text blocks
-  source?: string;
-  url?: string;
-}
-
-interface DescriptionBlock {
-  type: string; // e.g., "paragraph"
-  children: DescriptionChild[];
-}
-
-interface DescriptionChild {
-  type: string; // usually "text"
-  text: string;
+	id: number;
+	title: string;
+	date: string; // ISO string
+	category: BadgeType;
+	image?: {
+		url: string; // main image URL
+		formats?: {
+		thumbnail?: string;
+		small?: string;
+		medium?: string;
+		large?: string;
+		};
+	};
+	youtube_link?: string | null;
+	description?: string | null;
+	source?: string;
+	url?: string;
 }
 
 const NewsSection = () => {
@@ -134,31 +124,31 @@ const NewsSection = () => {
 						className="group flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-8 pb-5 border-b border-gray-200 last:border-b-0"
 					>
 						<div className="flex-1 min-w-0">
-						<time className="text-gray-500 text-sm sm:text-md font-medium block">
-							{formatDate(news.date)}
-						</time>
+							<time className="text-gray-500 text-sm sm:text-md font-medium block">
+								{formatDate(news.date)}
+							</time>
 
-						<Link href={news.url || "#"} target="_blank" rel="noopener noreferrer">
-							<h3 className="text-lg sm:text-xl cursor-pointer mb-2 font-medium text-gray-900 group-hover:text-[#044D28] transition-colors leading-snug">
-							{news.title}
-							</h3>
-						</Link>
+							<Link href={news.url || "#"} target="_blank" rel="noopener noreferrer">
+								<h3 className="text-lg sm:text-xl cursor-pointer mb-2 font-medium text-gray-900 group-hover:text-[#044D28] transition-colors leading-snug">
+								{news.title}
+								</h3>
+							</Link>
 
-						{news.description && (
-							<p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-3 line-clamp-3">
-							{news.description?.[0]?.children?.[0]?.text || ""}
-							</p>
-						)}
-
-						<div className="flex flex-wrap items-center gap-2 sm:gap-3">
-							<Badge type={news.category} size="sm" />
-							{news.source && (
-							<>
-								<span className="text-gray-700 hidden sm:inline">•</span>
-								<span className="text-sm font-medium text-gray-700">{news.source}</span>
-							</>
+							{news.description && (
+								<p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-3 line-clamp-3">
+								{news.description || ""}
+								</p>
 							)}
-						</div>
+
+							<div className="flex flex-wrap items-center gap-2 sm:gap-3">
+								<Badge type={news.category} size="sm" />
+								{news.source && (
+								<>
+									<span className="text-gray-700 hidden sm:inline">•</span>
+									<span className="text-sm font-medium text-gray-700">{news.source}</span>
+								</>
+								)}
+							</div>
 						</div>
 					</article>
 					))

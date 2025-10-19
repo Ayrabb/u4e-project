@@ -15,39 +15,16 @@ const newsList: NewsItem[] = [
     youtube_link: "https://www.youtube.com/embed/CpPLRW1hD00",
   },
   {
-    id: 4,
-    title: "Stakeholders endorse new efficiency standards",
+    id: 2,
+    title: "Benefits Of The REA UNEP Off-Grid Refrigeration Pilot Program",
     description:
-      "Key stakeholders across Nigeria have voiced support for the adoption of new energy efficiency standards.",
-    date: "2025-08-25",
+      "Project manager discusses the advantages and expected impacts of the REA-UNEP off-grid refrigeration pilot program, in advancing energy access, food security, and sustainable cooling solutions in underserved communities.",
+    date: "2025-10-15",  
     category: "news",
-    url: "/news/stakeholders-endorse-standards",
-    image: "/men-talking.jpg",
-    youtube_link: "https://www.youtube.com/embed/CpPLRW1hD00",
+    url: "https://www.youtube.com/watch?v=9gvETMDFVOQ",
+    image: "/offgrid_refrigeration.jpg",
+    youtube_link: "https://www.youtube.com/embed/9gvETMDFVOQ"
   },
-  {
-    id: 5,
-    title: "UNEP and partners release updated efficiency report",
-    description:
-      "The report outlines pathways for Nigeria to meet its energy savings and sustainability targets.",
-    date: "2025-07-15",
-    category: "news",
-    url: "/news/unep-partners-release-efficiency-report",
-    image: "/event.jpg",
-    youtube_link: "https://www.youtube.com/embed/CpPLRW1hD00",
-  },
-  {
-    id: 6,
-  title: "Benefits Of The REA UNEP Off-Grid Refrigeration Pilot Program",
-  description:
-    "Project manager discusses the advantages and expected impacts of the REA-UNEP off-grid refrigeration pilot program, in advancing energy access, food security, and sustainable cooling solutions in underserved communities.",
-  date: "2025-10-15",  
-  category: "news",
-  url: "https://www.youtube.com/watch?v=9gvETMDFVOQ",
-  image: "/offgrid_refrigeration.jpg",
-  youtube_link: "https://www.youtube.com/embed/9gvETMDFVOQ"
-},
-
 ];
 
 const VideoSection = () => {
