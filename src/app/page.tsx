@@ -203,7 +203,7 @@ const Partners = () => (
 					</h3>
 					<div className="relative w-48 h-24 sm:w-56 sm:h-28 md:w-64 md:h-32">
 						<Image
-						src="/Unep_logo2.png"
+						src="/unep_logo.png"
 						alt="United Nations Environment Programme logo"
 						fill
 						className="object-contain"
