@@ -112,7 +112,7 @@ const AboutUNEP = () => (
                         href="https://www.unep.org/topics/sustainable-development-goals/why-do-sustainable-development-goals-matter/goal-7"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
+                        className="flex flex-col items-center hover:scale-102 transition-transform duration-200"
                     >
                         <Image 
                             src="/sdg-logos/7.png" 
@@ -127,7 +127,7 @@ const AboutUNEP = () => (
                         href="https://www.unep.org/topics/sustainable-development-goals/why-do-sustainable-development-goals-matter/goal-11"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
+                        className="flex flex-col items-center hover:scale-102 transition-transform duration-200"
                     >
                         <Image 
                             src="/sdg-logos/11.png" 
@@ -142,7 +142,7 @@ const AboutUNEP = () => (
                         href="https://www.unep.org/topics/sustainable-development-goals/why-do-sustainable-development-goals-matter/goal-12"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
+                        className="flex flex-col items-center hover:scale-102 transition-transform duration-200"
                     >
                         <Image 
                             src="/sdg-logos/12.png" 
@@ -157,7 +157,7 @@ const AboutUNEP = () => (
                         href="https://www.unep.org/topics/sustainable-development-goals/why-do-sustainable-development-goals-matter/goal-13"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex flex-col items-center hover:scale-105 transition-transform duration-200"
+                        className="flex flex-col items-center hover:scale-102 transition-transform duration-200"
                     >
                         <Image 
                             src="/sdg-logos/13.png" 
@@ -192,7 +192,7 @@ const ProgramComponents = () => {
         {
             title: "Awareness Creation for Off-Grid Refrigeration Deployment in Rural Areas",
             objective: "Implement targeted awareness activities to ensure successful uptake of the pilot program including stakeholder workshops and community engagement programs.",
-            output: "Awareness Campaign Report: A narrative and visual report including",
+            output: "Awareness Campaign Report: A narrative and visual report",
             deliverables: [
             "Documentation of the stakeholder workshop: agenda, materials used, discussion summaries, participant list (disaggregated by gender and affiliation), and feedback received",
             "Reports from community engagement sessions: locations, session format, participation statistics, user",
@@ -202,7 +202,7 @@ const ProgramComponents = () => {
         {
             title: "Demonstration and Pilot Scheme in Selected Communities",
             objective: "To validate the technical feasibility, economic viability, and user acceptability of off-grid refrigeration systems, a pilot project will be implemented in carefully selected rural communities.",
-            output: "Pilot Demonstration Report: A results-focused report presenting the implementation and evaluation of the pilot including",
+            output: "Pilot Demonstration Report: A results-focused report presenting the implementation and evaluation of the pilot",
             deliverables: [
             "Documentation of community selection process and justification",
             "List of deployed refrigeration units by community and user type",

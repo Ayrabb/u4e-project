@@ -90,7 +90,7 @@ const NewsSection = () => {
 	
 	const sortedNews = [...news].sort(
 		(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-	);
+	).splice(0,3);
 
 	return (
 		<section className="bg-white py-12 px-4 md:px-12 space-y-3 max-w-6xl mx-auto mt-10">
@@ -324,7 +324,7 @@ const HeroSection = () => (
 
 		<div className="py-8 md:py-12 relative z-10 items-end h-full">
 			<div className="flex flex-col h-full w-full justify-end">
-				<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4 md:mb-6">
+				<h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-2">
 					The Off-grid Refrigeration Guidelines Pilot Implementation Programme
 				</h1>
 				<p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed">
