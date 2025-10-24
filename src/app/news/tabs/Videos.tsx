@@ -3,28 +3,54 @@ import { NewsItem } from "@/app/components/utilities";
 
 const newsList: NewsItem[] = [
   {
-    id: 1,
+  id: 1,
+  title: "REA, UNEP Launch Off-Grid Refrigeration Initiative",
+  description:
+    "The Off-grid Refrigeration Guidelines Pilot Implementation Programme promotes energy-efficient, affordable, and climate-friendly cooling solutions that strengthen food security, healthcare, and rural livelihoods across Nigeria.",
+  date: "2025-09-28",
+  category: "press",
+  url: "https://youtu.be/DZuPmWmX96c?si=X6S_w9kFuGOystLc",
+  image: "/event.jpg",
+  youtube_link: "https://www.youtube.com/embed/DZuPmWmX96c"
+    },
+     {
+    id: 2,
+  title: "REA’s Off-Grid Refrigeration Programme (ORGPIP)",
+  description:
+    "The Rural Electrification Agency (REA) hosted the Inception Workshop for the Off-Grid Refrigeration Programme (ORGPIP) — a key step toward promoting energy-efficient and climate-friendly cooling in Nigeria’s rural communities.",
+  date: "2025-10-15",  
+  category: "news",
+  url: "https://www.youtube.com/embed/1mHfqrEzJWk",
+  image: "/offgrid_refrigeration.jpg",
+  youtube_link: "https://www.youtube.com/embed/1mHfqrEzJWk"
+
+    },
+    {
+    id: 3,
     title:
-      "Invitation For Prequalification For The Africa Minigrids Program Grant For Pilot Minigrids in Rural Communities And Agricultural Value The U4E initiative in Nigeria The U4E initiative in Nigeria The U4E initiative in Nigeria",
+      "Stakeholders Proffer Solutions to Enhance Vaccine Storage",
     description:
-      "The U4E initiative in Nigeria has introduced new policies to improve efficiency in household appliances.",
+      "Stakeholders in Abuja proffered solutions to enhance vaccine storage for humans and animals through off-grid refrigeration.",
     date: "2025-09-28",
     category: "press",
     url: "/news/nigeria-launches-energy-efficient-appliance-program",
     image: "/event.jpg",
     youtube_link: "https://www.youtube.com/embed/CpPLRW1hD00",
   },
+ 
   {
-    id: 2,
-    title: "Benefits Of The REA UNEP Off-Grid Refrigeration Pilot Program",
-    description:
-      "Project manager discusses the advantages and expected impacts of the REA-UNEP off-grid refrigeration pilot program, in advancing energy access, food security, and sustainable cooling solutions in underserved communities.",
-    date: "2025-10-15",  
-    category: "news",
-    url: "https://www.youtube.com/watch?v=9gvETMDFVOQ",
-    image: "/offgrid_refrigeration.jpg",
-    youtube_link: "https://www.youtube.com/embed/9gvETMDFVOQ"
-  },
+    id: 4,
+  title: "Benefits Of The REA UNEP Off-Grid Refrigeration Pilot Program",
+  description:
+    "Project manager discusses the advantages and expected impacts of the REA-UNEP off-grid refrigeration pilot program, in advancing energy access, food security, and sustainable cooling solutions in underserved communities.",
+  date: "2025-10-15",  
+  category: "news",
+  url: "https://www.youtube.com/watch?v=9gvETMDFVOQ",
+  image: "/offgrid_refrigeration.jpg",
+  youtube_link: "https://www.youtube.com/embed/9gvETMDFVOQ"
+},
+
+
 ];
 
 const VideoSection = () => {
