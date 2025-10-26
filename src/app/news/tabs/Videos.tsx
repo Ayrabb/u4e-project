@@ -44,11 +44,11 @@ const VideoSection = () => {
 	}, []);
 
 	return (
-		<section className="bg-white py-16">
-			<div className="max-w-7xl pb-6 mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="mb-6">
+		<section className="bg-white space-y-16">
+			<div className="max-w-6xl py-12 sm:py-16 mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="">
 					<h2 className="text-2xl sm:text-3xl font-medium text-[#BFAB25]">
-						All Videos
+						All videos
 					</h2>
 					<p className="text-sm text-gray-500 mt-1">{totalVideos} videos</p>
 				</div>
@@ -69,7 +69,7 @@ const VideoSection = () => {
 				) : (
 					<div>
 						{sortedVideos.map((video, idx) => (
-							<article key={idx} className="group border-b border-gray-200 py-12">
+							<article key={idx} className={`group border-b border-gray-200 ${idx > 0 ? "py-12" : "py-6"}`}>
 								{/* Title */}
 								<h2 className="text-lg sm:text-xl md:text-2xl lg:text-2xl font-medium text-gray-900 mb-2 leading-tight">
 									{video.title}
@@ -88,7 +88,7 @@ const VideoSection = () => {
 								)}
 
 								{/* Video Player */}
-								<div className="relative aspect-video w-full bg-black rounded-lg overflow-hidden shadow-lg">
+								<div className="relative aspect-video w-full bg-black rounded-sm overflow-hidden shadow-lg">
 									{video.youtube_link &&
 										(video.youtube_link.includes("youtube.com") ||
 											video.youtube_link.includes("youtu.be")) && (

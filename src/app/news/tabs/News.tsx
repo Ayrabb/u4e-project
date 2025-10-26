@@ -52,9 +52,6 @@ const NewsSection = () => {
 
 	return (
 		<section className="space-y-16">
-			{/* <FeaturedSection /> */}
-			{/* <AllNews newsList={newsItems} /> */}
-
 			<div className="bg-white mx-auto max-w-6xl py-12 sm:py-16 px-4 sm:px-6 lg:px-12">
 				<h2 className="text-2xl sm:text-3xl font-medium text-[#BFAB25] mb-8">
 					All news
