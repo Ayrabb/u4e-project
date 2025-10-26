@@ -3,32 +3,30 @@ import { NewsItem } from "@/app/components/utilities";
 
 const newsList: NewsItem[] = [
   {
-  id: 1,
-  title: "REA, UNEP Launch Off-Grid Refrigeration Initiative",
-  description:
-    "The Off-grid Refrigeration Guidelines Pilot Implementation Programme promotes energy-efficient, affordable, and climate-friendly cooling solutions that strengthen food security, healthcare, and rural livelihoods across Nigeria.",
-  date: "2025-09-28",
-  category: "press",
-  url: "https://youtu.be/DZuPmWmX96c?si=X6S_w9kFuGOystLc",
-  image: "/event.jpg",
-  youtube_link: "https://www.youtube.com/embed/DZuPmWmX96c"
-    },
-     {
+    id: 1,
+    title: "REA, UNEP Launch Off-Grid Refrigeration Initiative",
+    description:
+      "The Off-grid Refrigeration Guidelines Pilot Implementation Programme promotes energy-efficient, affordable, and climate-friendly cooling solutions that strengthen food security, healthcare, and rural livelihoods across Nigeria.",
+    date: "2025-09-28",
+    category: "press",
+    url: "https://youtu.be/DZuPmWmX96c?si=X6S_w9kFuGOystLc",
+    image: "/event.jpg",
+    youtube_link: "https://www.youtube.com/embed/DZuPmWmX96c",
+  },
+  {
     id: 2,
-  title: "REA’s Off-Grid Refrigeration Programme (ORGPIP)",
-  description:
-    "The Rural Electrification Agency (REA) hosted the Inception Workshop for the Off-Grid Refrigeration Programme (ORGPIP) — a key step toward promoting energy-efficient and climate-friendly cooling in Nigeria’s rural communities.",
-  date: "2025-10-15",  
-  category: "news",
-  url: "https://www.youtube.com/embed/1mHfqrEzJWk",
-  image: "/offgrid_refrigeration.jpg",
-  youtube_link: "https://www.youtube.com/embed/1mHfqrEzJWk"
-
-    },
-    {
+    title: "REA’s Off-Grid Refrigeration Programme (ORGPIP)",
+    description:
+      "The Rural Electrification Agency (REA) hosted the Inception Workshop for the Off-Grid Refrigeration Programme (ORGPIP) — a key step toward promoting energy-efficient and climate-friendly cooling in Nigeria’s rural communities.",
+    date: "2025-10-15",
+    category: "news",
+    url: "https://www.youtube.com/embed/1mHfqrEzJWk",
+    image: "/offgrid_refrigeration.jpg",
+    youtube_link: "https://www.youtube.com/embed/1mHfqrEzJWk",
+  },
+  {
     id: 3,
-    title:
-      "Stakeholders Proffer Solutions to Enhance Vaccine Storage",
+    title: "Stakeholders Proffer Solutions to Enhance Vaccine Storage",
     description:
       "Stakeholders in Abuja proffered solutions to enhance vaccine storage for humans and animals through off-grid refrigeration.",
     date: "2025-09-28",
@@ -37,20 +35,17 @@ const newsList: NewsItem[] = [
     image: "/event.jpg",
     youtube_link: "https://www.youtube.com/embed/CpPLRW1hD00",
   },
- 
   {
     id: 4,
-  title: "Benefits Of The REA UNEP Off-Grid Refrigeration Pilot Program",
-  description:
-    "Project manager discusses the advantages and expected impacts of the REA-UNEP off-grid refrigeration pilot program, in advancing energy access, food security, and sustainable cooling solutions in underserved communities.",
-  date: "2025-10-15",  
-  category: "news",
-  url: "https://www.youtube.com/watch?v=9gvETMDFVOQ",
-  image: "/offgrid_refrigeration.jpg",
-  youtube_link: "https://www.youtube.com/embed/9gvETMDFVOQ"
-},
-
-
+    title: "Benefits Of The REA UNEP Off-Grid Refrigeration Pilot Program",
+    description:
+      "Project manager discusses the advantages and expected impacts of the REA-UNEP off-grid refrigeration pilot program, in advancing energy access, food security, and sustainable cooling solutions in underserved communities.",
+    date: "2025-10-15",
+    category: "news",
+    url: "https://www.youtube.com/watch?v=9gvETMDFVOQ",
+    image: "/offgrid_refrigeration.jpg",
+    youtube_link: "https://www.youtube.com/embed/9gvETMDFVOQ",
+  },
 ];
 
 const VideoSection = () => {
@@ -62,12 +57,28 @@ const VideoSection = () => {
     });
   };
 
+ 
+  const sortedVideos = [...newsList].sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  );
+
+
+  const totalVideos = sortedVideos.length;
+
   return (
     <section className="bg-white py-16">
       <div className="max-w-7xl pb-6 mx-auto px-4 sm:px-6 lg:px-8">
+       
+        <div className="mb-6">
+          <h2 className="text-2xl sm:text-3xl font-medium text-[#BFAB25]">
+            All Videos
+          </h2>
+          <p className="text-sm text-gray-500 mt-1">{totalVideos} videos</p>
+        </div>
+
         {/* Video List */}
         <div>
-          {newsList.map((video) => (
+          {sortedVideos.map((video) => (
             <article
               key={video.id}
               className="group border-b border-gray-200 py-12"
