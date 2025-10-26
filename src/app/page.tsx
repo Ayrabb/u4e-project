@@ -3,43 +3,15 @@ import Image from "next/image";
 import Footer from "./components/footer";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
 import Navbar from "./components/navbar";
-import { Badge, BadgeType } from "./components/utilities";
+import { Badge } from "./components/utilities";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-
-interface NewsItem {
-  id: number;
-  title: string;
-  date: string; // ISO string
-  category: BadgeType;
-  image?: {
-	url: string; // main image URL
-	formats?: {
-	  thumbnail?: string;
-	  small?: string;
-	  medium?: string;
-	  large?: string;
-	};
-  };
-  youtube_link?: string | null;
-  description?: DescriptionBlock[]; // array of rich text blocks
-  source?: string;
-  url?: string;
-}
-
-interface DescriptionBlock {
-  type: string; // e.g., "paragraph"
-  children: DescriptionChild[];
-}
-
-interface DescriptionChild {
-  type: string; // usually "text"
-  text: string;
-}
+import { SanityDocument } from "next-sanity";
+import { client } from "@/sanity/client";
 
 const NewsSection = () => {
-	const [news, setNews] = useState<NewsItem[]>([]);
-	const [loading, setLoading] = useState(true);
+	const [news, setNews] = useState<SanityDocument[]>([]);
+	const [loading, setLoading] = useState (true);
 
 	const formatDate = (dateString: string) => {
 		return new Date(dateString).toLocaleDateString("en-GB", {
@@ -50,42 +22,33 @@ const NewsSection = () => {
 	};
 
 	useEffect(() => {
-		const fetchNews = async () => {
-			setLoading(true)
-			const api_url = process.env.NEXT_PUBLIC_API_URL;
-			const target = `${api_url}/api/news-items?populate=*`;
-			const reqUrl = `/api/proxy?url=${encodeURIComponent(target)}`;
-			try {
-				const res = await fetch(reqUrl);
-				const data = await res.json();
-				console.log(data);
-				const all_news: NewsItem[] = data.data;
-				setNews(all_news.filter((item: NewsItem) => item.category === "news" || item.category === "press"));
-			} catch  {
-				setNews([]); // fallback
-				console.log("An error occurred while fetching news items.")
-			} finally {
-				setLoading(false)
-			}
-		};
-
-		const fetchNewsFromLocal = async () => {
+		const fetchFromSanity = async () => {
+			const ALL_NEWS_QUERY = `*[_type == "news"] | order(date desc)[0...3] {
+				_id,
+				title,
+				description,
+				date,
+				category,
+				url,
+				source,
+				youtube_link,
+				"imageUrl": image.asset->url
+				}`;
+	
 			setLoading(true);
 			try {
-				const local_json = "/api/news";
-				const res = await fetch(local_json);
-				const data = await res.json();
-				const all_news: NewsItem[] = data.data;
-				setNews(all_news.filter((item: NewsItem) => item.category === "news" || item.category === "press"));
+				const sanity_news = await client.fetch<SanityDocument[]>(ALL_NEWS_QUERY, {});
+				console.log(sanity_news)
+				setNews(sanity_news);
 			}
 			catch {
 				setNews([]); // fallback
 				console.log("An error occurred while fetching news items.")
 			}
 			finally { setLoading(false)}
-		};
+		}
 
-		fetchNewsFromLocal();
+		fetchFromSanity();
 	}, []);
 	
 	const sortedNews = [...news].sort(
@@ -122,9 +85,9 @@ const NewsSection = () => {
 						</article>
 					))
 				) : (
-				sortedNews.map((news) => (
+				sortedNews.map((news, idx) => (
 					<article
-						key={news.id}
+						key={idx}
 						className="group flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-8 pb-5 border-b border-gray-200 last:border-b-0"
 					>
 						<div className="flex-1 min-w-0">
@@ -140,7 +103,7 @@ const NewsSection = () => {
 
 						{news.description && (
 							<p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-3 line-clamp-3">
-								{news.description?.[0]?.children?.[0]?.text || ""}
+								{news.description || ""}
 							</p>
 						)}
 
