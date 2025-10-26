@@ -1,30 +1,11 @@
-// import { NewsItem } from "@/app/components/utilities";
-import { Badge, BadgeType } from "@/app/components/utilities";
+import { Badge } from "@/app/components/utilities";
+import { client } from "@/sanity/client";
+import { SanityDocument } from "next-sanity";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-interface NewsItem {
-	id: number;
-	title: string;
-	date: string; // ISO string
-	category: BadgeType;
-	image?: {
-		url: string; // main image URL
-		formats?: {
-		thumbnail?: string;
-		small?: string;
-		medium?: string;
-		large?: string;
-		};
-	};
-	youtube_link?: string | null;
-	description?: string | null;
-	source?: string;
-	url?: string;
-}
-
 const NewsSection = () => {
-	const [news, setNews] = useState<NewsItem[]>([]);
+	const [news, setNews] = useState<SanityDocument[]>([]);
 	const [loading, setLoading] = useState(true);
 
     const formatDate = (dateString: string) => {
@@ -36,48 +17,34 @@ const NewsSection = () => {
     };
 
 	useEffect(() => {
-		const fetchNews = async () => {
-			setLoading(true);
-			const api_url = process.env.NEXT_PUBLIC_API_URL;
-			const target = `${api_url}/api/news-items?populate=*`;
-			const reqUrl = `/api/proxy?url=${encodeURIComponent(target)}`;
-			try {
-				const res = await fetch(reqUrl);
-				const data = await res.json();
-				console.log(data);
-				const all_news: NewsItem[] = data.data;
-				setNews(all_news.filter((item: NewsItem) => item.category === "news" || item.category === "press"));
-			} catch  {
-				setNews([]); // fallback
-				console.log("An error occurred while fetching news items.")
-			} finally {
-				setLoading(false);
-			}
-		};
-
-		const fetchNewsFromLocal = async () => {
+		const fetchFromSanity = async () => {
+			const ALL_NEWS_QUERY = `*[_type == "news"] | order(date desc) {
+				_id,
+				title,
+				description,
+				date,
+				category,
+				url,
+				source,
+				youtube_link,
+				"imageUrl": image.asset->url
+				}`;
+	
 			setLoading(true);
 			try {
-				const local_json = "/api/news";
-				const res = await fetch(local_json);
-				const data = await res.json();
-				const all_news: NewsItem[] = data.data;
-				setNews(all_news.filter((item: NewsItem) => item.category === "news" || item.category === "press"));
+				const sanity_news = await client.fetch<SanityDocument[]>(ALL_NEWS_QUERY, {});
+				console.log(sanity_news)
+				setNews(sanity_news);
 			}
 			catch {
 				setNews([]); // fallback
 				console.log("An error occurred while fetching news items.")
 			}
 			finally { setLoading(false)}
-		};
+		}
 
-		fetchNewsFromLocal();
+		fetchFromSanity();
 	}, []);
-
-	useEffect(() => {
-		if (news.length === 0) return;
-		console.log("news", news);
-	}, [news]);
 
 	const sortedNews = [...news].sort(
 		(a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
@@ -116,11 +83,9 @@ const NewsSection = () => {
 						</div>
 					</article>
 					))
-				) : (
-					// Actual news items
-					sortedNews.map((news) => (
+				) : (sortedNews.map((news, idx) => (
 					<article
-						key={news.id}
+						key={idx}
 						className="group flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-8 pb-5 border-b border-gray-200 last:border-b-0"
 					>
 						<div className="flex-1 min-w-0">
