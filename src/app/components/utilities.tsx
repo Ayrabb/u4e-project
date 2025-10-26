@@ -70,3 +70,27 @@ export const Badge = ({ type, size = "sm" }: BadgeProps) => {
     </span>
   );
 };
+
+
+export interface SanityImage {
+	_key: string;
+	asset: {
+		_ref: string;
+		_type: string;
+	};
+}
+
+export interface GalleryData {
+	_id: string;
+	title: string;
+	coverImage?: SanityImage;
+	images?: SanityImage[];
+	imageCount?: number;
+	url?: string;
+}
+
+export interface ImageData {
+	id: string;
+	url: string;
+	name: string;
+}
