@@ -6,7 +6,9 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**.ngrok-free.dev",
+        hostname: "cdn.sanity.io",
+        port: "",
+        pathname: "/images/**",
       },
     ],
   },
