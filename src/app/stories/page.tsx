@@ -11,8 +11,8 @@ import { ImSpinner2 } from "react-icons/im";
 const AllStories = ({ all_stories }: { all_stories: SanityDocument[] }) => {
     const router = useRouter();
     const handleStoryClick = (storyId: string) => {
-		router.push(`/stories/${storyId}`);
-	};
+        router.push(`/stories/${storyId}`);
+    };
 
     return (
         <div className="container mx-auto px-4 md:px-8 lg:px-20 py-16">
@@ -21,9 +21,9 @@ const AllStories = ({ all_stories }: { all_stories: SanityDocument[] }) => {
             </h2>
             <div className="flex flex-col divide-y divide-gray-200">
                 {all_stories && all_stories.map((story, idx) => (
-                    <div 
+                    <div
                         className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8"
-                        key={idx} 
+                        key={idx}
                     >
                         <div className="md:col-span-2 flex flex-col space-y-2">
                             <time className="text-gray-500 font-medium text-md">
@@ -34,7 +34,7 @@ const AllStories = ({ all_stories }: { all_stories: SanityDocument[] }) => {
                                 })}
                             </time>
                             <div className="space-y-2">
-                                <h3 
+                                <h3
                                     onClick={() => handleStoryClick(story._id)}
                                     className="text-xl md:text-2xl text-gray-900 font-medium cursor-pointer hover:text-[#044D28] transition-colors"
                                 >
@@ -48,7 +48,7 @@ const AllStories = ({ all_stories }: { all_stories: SanityDocument[] }) => {
                         {story?.imageUrl && (
                             <div className="md:col-span-1">
                                 <div className="relative aspect-[16/9] w-full">
-                                    <Image 
+                                    <Image
                                         src={story.imageUrl}
                                         alt={story.title}
                                         fill
@@ -65,7 +65,7 @@ const AllStories = ({ all_stories }: { all_stories: SanityDocument[] }) => {
     )
 }
 
-export default function StoriesPage () {
+export default function StoriesPage() {
     const [stories, setStories] = useState<SanityDocument[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -88,7 +88,7 @@ export default function StoriesPage () {
             }
             catch {
                 setStories([]); // fallback
-				console.log("An error occurred while fetching stories.")
+                console.log("An error occurred while fetching stories.")
             }
             finally { setLoading(false) }
         };
@@ -96,58 +96,80 @@ export default function StoriesPage () {
     }, [])
 
     return (
-    <main className="relative min-h-screen font-montserrat bg-white">
-        <NavBar />
-        
-        {/* Hero section */}
-        <section className="flex items-center min-h-[95vh] bg-black relative">
-            <div className="w-full px-10">
-                <div className="flex flex-col md:flex-row items-center gap-1">
-                    <div className="w-full md:w-1/3 space-y-6">
-                        <p className="text-gray-200 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wider leading-snug">
-                            Discover how the programme is lighting up small businesses across Nigeria.
-                        </p>
-                    </div>
+        <main className="relative min-h-screen font-montserrat bg-white">
+            <NavBar />
 
-                    <div className="w-full md:w-2/3">
-                        <div className="relative aspect-[16/9]">
-                            <Image 
-                                src="/suya.jpg"
-                                alt="Featured story image"
-                                fill
-                                className="object-cover rounded-lg"
-                                priority
-                            />
+            {/* Hero section */}
+            <section className="flex items-end md:items-center min-h-[40vh] md:min-h-[95vh] bg-black relative">
+                <div className="w-full h-full px-6 sm:px-8 md:px-10 pb-10 md:pb-0">
+                    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                        <div className="w-full md:w-1/2 space-y-6 md:text-left">
+                            <p className="text-gray-200 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wider leading-snug">
+                                Discover how the programme is lighting up small businesses across Nigeria
+                            </p>
                         </div>
+
+                        {/* Image Section (hidden on mobile) */}
+                        <div className="hidden md:block w-full md:w-1/2">
+                            <div className="relative aspect-[16/9]">
+                                <Image
+                                    src="/suya.jpg"
+                                    alt="Featured story image"
+                                    fill
+                                    className="object-cover rounded-lg"
+                                    priority
+                                />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-            </div>
-            <p className="absolute bottom-2 right-4 text-gray-400 text-[0.6rem] white text-xs bg-black bg-opacity-60 px-2 py-1 rounded">
-                Image credit: <a href="https://commons.wikimedia.org/wiki/File:The_Suya_Seller.jpg" target="_blank" rel="noopener noreferrer" className="underline">The Suya Seller</a> by Chika Okoli / <a href="https://commons.wikimedia.org/" target="_blank" rel="noopener noreferrer" className="underline">Wikimedia Commons</a> (CC BY-SA 4.0)
-            </p>
-        </section>
 
-        <section>
-            {loading ? (
-                <div className="min-h-screen flex flex-col mx-auto justify-center items-center">
-                    <ImSpinner2 className="w-12 h-auto text-[#044D28] animate-spin" />
-                </div>
-            ) : (
-                <>
-                {stories.length > 0 ? (
-                    <AllStories all_stories={stories} />
+                {/* Image credit */}
+                <p className="hidden md:block absolute bottom-2 right-4 text-gray-400 text-[0.65rem] sm:text-xs bg-black bg-opacity-60 px-2 py-1 rounded">
+                    Image credit:{' '}
+                    <a
+                        href="https://commons.wikimedia.org/wiki/File:The_Suya_Seller.jpg"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline"
+                    >
+                        The Suya Seller
+                    </a>{' '}
+                    by Chika Okoli /{' '}
+                    <a
+                        href="https://commons.wikimedia.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline"
+                    >
+                        Wikimedia Commons
+                    </a>{' '}
+                    (CC BY-SA 4.0)
+                </p>
+            </section>
+
+            <section>
+                {loading ? (
+                    <div className="min-h-screen flex flex-col mx-auto justify-center items-center">
+                        <ImSpinner2 className="w-12 h-auto text-[#044D28] animate-spin" />
+                    </div>
                 ) : (
-                    <div className="min-h-[50vh] flex justify-center text-center w-full">
-                        <p className="text-gray-500 m-auto text-lg md:text-xl">No stories available at the moment. Please check back later.</p>
-                    </div>
+                    <>
+                        {stories.length > 0 ? (
+                            <AllStories all_stories={stories} />
+                        ) : (
+                            <div className="min-h-[50vh] flex justify-center text-center w-full">
+                                <p className="text-gray-500 m-auto text-lg md:text-xl">No stories available at the moment. Please check back later.</p>
+                            </div>
+                        )}
+                    </>
                 )}
-                </>
-            )}
-        </section>
+            </section>
 
-        <section>
-            <Footer />
-        </section>
-    </main>
+            <section>
+                <Footer />
+            </section>
+        </main>
     );
 }
