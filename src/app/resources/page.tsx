@@ -99,8 +99,8 @@ export default function ResourcesPage() {
 									</div>
 								</div>))
 							) : (
-								<div className="text-center py-12">
-									<p className="text-gray-500">No resources available at the moment.</p>
+								<div className="min-h-[50vh] flex justify-center text-center w-full">
+									<p className="text-gray-500 m-auto text-lg md:text-xl">No resources available at the moment.</p>
 								</div>
 							)}
 					</div>
