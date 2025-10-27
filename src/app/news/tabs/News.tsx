@@ -1,4 +1,4 @@
-import { Badge } from "@/app/components/utilities";
+import { Badge, formatDate } from "@/app/components/utilities";
 import { client } from "@/sanity/client";
 import { SanityDocument } from "next-sanity";
 import Link from "next/link";
@@ -7,14 +7,6 @@ import { useEffect, useState } from "react";
 const NewsSection = () => {
 	const [news, setNews] = useState<SanityDocument[]>([]);
 	const [loading, setLoading] = useState(true);
-
-    const formatDate = (dateString: string) => {
-      return new Date(dateString).toLocaleDateString("en-GB", {
-			day: "numeric",
-			month: "short",
-			year: "numeric"
-      });
-    };
 
 	useEffect(() => {
 		const fetchFromSanity = async () => {
