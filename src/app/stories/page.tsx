@@ -16,7 +16,7 @@ const AllStories = ({ all_stories }: { all_stories: SanityDocument[] }) => {
 
     return (
         <div className="container mx-auto px-4 md:px-8 lg:px-20 py-16">
-            <h2 className="text-2xl md:text-4xl text-[#BFAB25] font-medium mb-8">
+            <h2 className="text-2xl md:text-4xl text-[#BFAB25] font-medium">
                 All stories
             </h2>
             <div className="flex flex-col divide-y divide-gray-200">
@@ -100,54 +100,11 @@ export default function StoriesPage() {
             <NavBar />
 
             {/* Hero section */}
-            <section className="flex items-end md:items-center min-h-[40vh] md:min-h-[95vh] bg-black relative">
-                <div className="w-full h-full px-6 sm:px-8 md:px-10 pb-10 md:pb-0">
-                    <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-                        <div className="w-full md:w-1/2 space-y-6 md:text-left">
-                            <p className="text-gray-200 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wider leading-snug">
-                                Discover how the programme is lighting up small businesses across Nigeria
-                            </p>
-                        </div>
-
-                        {/* Image Section (hidden on mobile) */}
-                        <div className="hidden md:block w-full md:w-1/2">
-                            <div className="relative aspect-[16/9]">
-                                <Image
-                                    src="/suya.jpg"
-                                    alt="Featured story image"
-                                    fill
-                                    className="object-cover rounded-lg"
-                                    priority
-                                />
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                {/* Image credit */}
-                <p className="hidden md:block absolute bottom-2 right-4 text-gray-400 text-[0.65rem] sm:text-xs bg-black bg-opacity-60 px-2 py-1 rounded">
-                    Image credit:{' '}
-                    <a
-                        href="https://commons.wikimedia.org/wiki/File:The_Suya_Seller.jpg"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline"
-                    >
-                        The Suya Seller
-                    </a>{' '}
-                    by Chika Okoli /{' '}
-                    <a
-                        href="https://commons.wikimedia.org/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline"
-                    >
-                        Wikimedia Commons
-                    </a>{' '}
-                    (CC BY-SA 4.0)
-                </p>
-            </section>
+            <section
+				className="flex min-h-[120px] sm:min-h-[140px] md:min-h-[160px] lg:min-h-[180px] mt-[var(--navbar-height)] bg-gradient-to-b from-[#044D28] from-28% via-[#078042] via-86% to-[#099A4F] to-100% items-center text-white px-5 sm:px-10 md:px-16 lg:px-20"
+			>
+				<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">Stories</h2>
+			</section>
 
             <section>
                 {loading ? (

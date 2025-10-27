@@ -51,7 +51,7 @@ const links: NavLink[] = [
 export default function Navbar() {
     const router = useRouter();
     const path = usePathname();
-    const alwaysBgNav: boolean = path !== "/" && path !== "/stories";
+    const alwaysBgNav: boolean = path !== "/";
     const [isScrolled, setIsScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
