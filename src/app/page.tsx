@@ -57,8 +57,8 @@ const NewsSection = () => {
 
 	return (
 		<section className="bg-white py-12 px-4 md:px-12 space-y-3 max-w-6xl mx-auto mt-10">
-			<div className="flex justify-between items-center">
-				<h2 className="text-2xl font-medium text-[#b59d2a]">Latest updates</h2>
+			<div className="flex justify-between items-center pb-4">
+				<h2 className="text-3xl font-medium text-[#b59d2a]">Latest updates</h2>
 			</div>
 
 			<div className="space-y-8">
@@ -88,7 +88,7 @@ const NewsSection = () => {
 				sortedNews.map((news, idx) => (
 					<article
 						key={idx}
-						className="group flex flex-col sm:flex-row items-start justify-between gap-4 sm:gap-8 pb-5 border-b border-gray-200 last:border-b-0"
+						className="group flex flex-col sm:flex-row items-start justify-between gap-2 sm:gap-8 pb-3 border-b border-gray-200 last:border-b-0"
 					>
 						<div className="flex-1 min-w-0">
 							<time className="text-gray-500 text-sm sm:text-md font-medium block">
@@ -107,17 +107,11 @@ const NewsSection = () => {
 							</p>
 						)}
 
-							<div className="flex flex-wrap items-center gap-2 sm:gap-3">
-								<Badge type={news.category} size="sm" />
-								{news.source && (
-								<>
-									<span className="text-gray-700 hidden sm:inline">•</span>
-									<span className="text-sm font-medium text-gray-700">
-										{news.source}
-									</span>
-								</>
-								)}
-							</div>
+						{news.source && (
+							<>
+								<span className="text-md font-medium text-gray-700 uppercase">{news.source}</span>
+							</>
+						)}
 						</div>
 					</article>
 				)))}

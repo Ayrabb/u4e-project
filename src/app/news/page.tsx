@@ -22,8 +22,7 @@ const HeroSection = (
 			<div className="flex flex-col text-white px-5 sm:px-10 md:px-16 lg:px-20">
 				<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">News center</h2>
 				<p className="text-gray-300 text-base sm:text-sm md:text-lg text-base leading-relaxed max-w-3xl">
-					Stay updated with the latest updates, stories and press releases from
-					U4E Nigeria.
+					Keep up with the programme&apos;s latest news, visuals, and milestones.
 				</p>
 			</div>
 

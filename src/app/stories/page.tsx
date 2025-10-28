@@ -8,7 +8,7 @@ import { SanityDocument } from "next-sanity";
 import { client } from "@/sanity/client";
 import { ImSpinner2 } from "react-icons/im";
 
-const AllStories = ({ all_stories }: { all_stories: SanityDocument[] }) => {
+const AllStories2 = ({ all_stories }: { all_stories: SanityDocument[] }) => {
     const router = useRouter();
     const handleStoryClick = (storyId: string) => {
         router.push(`/stories/${storyId}`);
@@ -65,6 +65,66 @@ const AllStories = ({ all_stories }: { all_stories: SanityDocument[] }) => {
     )
 }
 
+const AllStories = ({ all_stories }: { all_stories: SanityDocument[] }) => {
+    const router = useRouter();
+    const handleStoryClick = (storyId: string) => {
+        router.push(`/stories/${storyId}`);
+    };
+
+    return (
+        <div className="container mx-auto px-4 md:px-8 lg:px-20 py-12 md:py-16 bg-gray-50">
+            <div className="grid gap-8">
+                {all_stories && all_stories.map((story) => (
+                    <article
+                        key={story._id}
+                        className="group bg-white rounded-sm shadow-xs overflow-hidden border border-gray-100"
+                        onClick={() => handleStoryClick(story._id)}
+                    >
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 p-4">
+                            <div className="md:col-span-2 flex flex-col justify-center space-y-3 order-2 md:order-1">
+                                <time className="text-gray-500 text-sm sm:text-md font-medium uppercase tracking-wider">
+                                    {new Date(story.date).toLocaleDateString('en-UK', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric'
+                                    })}
+                                </time>
+                                <h3 className="text-xl md:text-2xl text-gray-900 cursor-pointer font-medium group-hover:text-[#044D28] transition-colors">
+                                    {story.title}
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed line-clamp-3">
+                                    {story.description}
+                                </p>
+                                <div className="mt-auto">
+                                    <span className="inline-flex items-center text-[#044D28] font-medium group-hover:underline cursor-pointer">
+                                        Read more
+                                        <svg className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            {story?.imageUrl && (
+                                <div className="md:col-span-1 order-1 md:order-2">
+                                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xs">
+                                        <Image
+                                            src={story.imageUrl}
+                                            alt={story.title}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                        />
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </article>
+                ))}
+            </div>
+        </div>
+    )
+}
+
 export default function StoriesPage() {
     const [stories, setStories] = useState<SanityDocument[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
@@ -96,14 +156,19 @@ export default function StoriesPage() {
     }, [])
 
     return (
-        <main className="relative min-h-screen font-montserrat bg-white">
+        <main className="relative min-h-screen font-montserrat bg-gray-50">
             <NavBar />
 
             {/* Hero section */}
             <section
 				className="flex min-h-[120px] sm:min-h-[140px] md:min-h-[160px] lg:min-h-[180px] mt-[var(--navbar-height)] bg-gradient-to-b from-[#044D28] from-28% via-[#078042] via-86% to-[#099A4F] to-100% items-center text-white px-5 sm:px-10 md:px-16 lg:px-20"
 			>
-				<h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">Stories</h2>
+                <div className="flex flex-col">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium">Stories</h2>
+                    <p className="text-gray-300 text-base sm:text-sm md:text-lg text-base leading-relaxed max-w-3xl">
+                        Discover how the programme is making a difference across Nigeria.
+                    </p>
+                </div>
 			</section>
 
             <section>

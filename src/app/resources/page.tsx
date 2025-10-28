@@ -85,16 +85,16 @@ export default function ResourcesPage() {
 									<p className="text-gray-700 leading-relaxed mb-1 text-md md:text-lg">
 										{resource.description}
 									</p>
-									<p className="text-gray-700 mb-2 text-md md:text-lg">
+									<p className="text-gray-900 mb-2 text-md md:text-lg">
 										{formatDate(resource.date)}
 									</p>
 									<div className="flex justify-end w-full"> 
 										<a href={resource.pdfUrl}
 											download={resource.pdfFileName || resource.title}
-											className="inline-flex items-center gap-2 px-4 py-3 bg-transparent md:bg-[#044D28] text-white text-md md:text-lg font-medium rounded-lg hover:bg-[#078042] transition-colors"
+											className="inline-flex items-center gap-1 px-2 py-2 bg-transparent md:bg-[#044D28] text-white text-md md:text-lg font-medium rounded-lg hover:bg-[#078042] transition-colors"
 										>
-											<IoDownload className="w-8 md:w-5 h-auto text-[#044D28] md:text-white" />
-											<p className="hidden md:block">Download PDF</p>
+											<IoDownload className="w-8 md:w-5 h-auto text-[#044D28] md:text-white mb-1" />
+											<span className="hidden md:block m-0">Download</span>
 										</a>
 									</div>
 								</div>))

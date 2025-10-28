@@ -20,20 +20,20 @@ export default function StoryPage () {
     const [error, setError] = useState<string | null>(null);
     
     useEffect(() => {
-        const fetchGalleryImages = async () => {
+        const fetchStory = async () => {
             try {
                 setLoading(true);
                 setError(null);
 
-                // Fetch the gallery document from Sanity
+                // Fetch the story document from Sanity
                 const query = `*[_type == "story" && _id == "${params.id}"][0] {
                     _id,
                     title,
                     description,
                     body,
-                    "pdfUrl": image.asset->url,
-                    "pdfFileName": image.asset->originalFilename
+                    "imageUrl": image.asset->url
                 }`;
+                
                 const res = await client.fetch<SanityDocument>(query, {});
                 console.log(res);
                 setStory(res);
@@ -45,7 +45,7 @@ export default function StoryPage () {
             }
         };
         
-        fetchGalleryImages();
+        fetchStory();
     }, [params.id]);
 
     if(loading){
@@ -102,16 +102,18 @@ export default function StoryPage () {
             </section>
 
             <div className="min-h-screen bg-white font-montserrat pb-16">
-                {story.pdfUrl && (
-                    <div className="w-full max-w-4xl mx-auto my-8 px-4">
-                        <Image
-                            src={story.pdfUrl}
-                            alt={story.title}
-                            width={800}
-                            height={450}
-                            className="w-full h-auto object-contain rounded-xs"
-                            priority
-                        />
+                {story.imageUrl && (
+                    <div className="w-full max-w-5xl mx-auto my-8 px-4">
+                        <div className="relative aspect-[21/9] w-full overflow-hidden rounded-0">
+                            <Image
+                                src={story.imageUrl}
+                                alt={story.title}
+                                fill
+                                className="object-cover"
+                                priority
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                            />
+                        </div>
                     </div>
                 )}
                 <div className="max-w-4xl mx-auto px-4">
